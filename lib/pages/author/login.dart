@@ -52,7 +52,7 @@ class Login extends StatelessWidget {
                 children: [
                   const Expanded(
                     child: Divider(
-                      color: Color.fromARGB(255, 88, 170, 238),
+                      color: Colors.cyan,
                       height: 1.5,
                     ),
                   ),
@@ -67,23 +67,51 @@ class Login extends StatelessWidget {
                   ),
                   const Expanded(
                     child: Divider(
-                      color: Color.fromARGB(255, 87, 172, 241),
+                      color: Colors.cyan,
                       height: 1.5,
                     ),
                   ),
                 ],
               ),
             ),
+            const SizedBox(
+              height: 50,
+            ),
+            const input(),
+            const SizedBox(
+              height: 15,
+            ),
             ButtonBlue(
-              horizontal: 250.0,
-              vertical: 48.0,
-              text: 'Get Started',
+              horizontal: 350.0,
+              vertical: 50.0,
+              text: 'Login',
               buttonFunction: () => onPressed(context),
             )
           ],
         ),
       ),
     );
+  }
+}
+
+class input extends StatelessWidget {
+  const input({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+        decoration: InputDecoration(
+      enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: Colors.cyan)),
+      focusedBorder:
+          const OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan)),
+      fillColor: Colors.white,
+      filled: true,
+      constraints: const BoxConstraints(maxWidth: 350, maxHeight: 50),
+    ));
   }
 }
 

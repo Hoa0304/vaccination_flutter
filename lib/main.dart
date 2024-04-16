@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/pages/author/login.dart';
 import 'package:vaccination/pages/introduction/check.dart';
+import 'package:vaccination/pages/introduction/free.dart';
 import 'package:vaccination/pages/introduction/prevent.dart';
 import 'package:vaccination/pages/introduction/splash.dart';
+import 'package:vaccination/pages/introduction/test.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,6 +21,8 @@ class MyApp extends StatelessWidget {
           '/prevent': (context) => Prevent(),
           '/check': (context) => Check(),
           '/login': (context) => Login(),
+          '/free': (context) => Free(),
+          '/test': (context) => Test(),
         },
         theme: ThemeData(
           textTheme: const TextTheme(
