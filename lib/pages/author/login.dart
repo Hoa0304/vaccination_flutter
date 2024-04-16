@@ -105,7 +105,7 @@ class input extends StatelessWidget {
         decoration: InputDecoration(
       enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.cyan)),
+          borderSide: const BorderSide(color: Colors.cyan)),
       focusedBorder:
           const OutlineInputBorder(borderSide: BorderSide(color: Colors.cyan)),
       fillColor: Colors.white,
