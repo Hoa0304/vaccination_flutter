@@ -17,14 +17,14 @@ class ButtonBlue extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         fixedSize: Size(horizontal, vertical),
-        backgroundColor: Colors.blue[300], // Màu nền
+        backgroundColor: Colors.cyan, // Màu nền
         foregroundColor: Colors.white,
       ),
       onPressed: buttonFunction,
       child: Text(
         text,
         style: Theme.of(context).textTheme.bodyText1!.merge(
-              TextStyle(fontSize: 18, color: Colors.white),
+              const TextStyle(fontSize: 20, color: Colors.white),
             ), // Kích thước chữ
       ),
     );

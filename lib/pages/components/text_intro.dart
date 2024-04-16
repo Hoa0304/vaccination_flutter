@@ -36,7 +36,7 @@ class TextIntro extends StatelessWidget {
           Text(
             text2,
             style: Theme.of(context).textTheme.bodyText1!.merge(
-                  TextStyle(color: Colors.blue[300]),
+                  const TextStyle(color: Colors.cyan),
                 ),
           ),
           Text(
@@ -59,7 +59,7 @@ class TextIntro extends StatelessWidget {
           Text(
             text7,
             style: Theme.of(context).textTheme.bodyText2!.merge(
-                  TextStyle(color: Colors.blue[300]),
+                  const TextStyle(color: Colors.cyan),
                 ),
           ),
           Text(

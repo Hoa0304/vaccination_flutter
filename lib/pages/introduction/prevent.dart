@@ -27,18 +27,18 @@ class Prevent extends StatelessWidget {
                   icon: Text(
                     'Next',
                     style: Theme.of(context).textTheme.bodyText2!.merge(
-                          TextStyle(fontSize: 15, color: Colors.blue[300]),
+                          const TextStyle(fontSize: 15, color: Colors.cyan),
                         ),
                   ),
                 ),
               ],
             ),
-            Header()
+            const Header()
           ],
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(bottom: 100),
+        padding: const EdgeInsets.only(bottom: 100),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -58,7 +58,7 @@ class Prevent extends StatelessWidget {
               text7: 'COVID-19 ',
               text8: 'vaccine today..',
             ),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             ButtonBlue(
               horizontal: 250.0,
               vertical: 48.0,
