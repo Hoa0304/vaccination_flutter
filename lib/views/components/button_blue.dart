@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 
 class ButtonBlue extends StatelessWidget {
   double horizontal;
@@ -17,7 +18,7 @@ class ButtonBlue extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         fixedSize: Size(horizontal, vertical),
-        backgroundColor: Colors.cyan, // Màu nền
+        backgroundColor: colorScheme.primary, // Màu nền
         foregroundColor: Colors.white,
       ),
       onPressed: buttonFunction,

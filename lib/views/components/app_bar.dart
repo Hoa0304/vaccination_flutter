@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -25,7 +26,7 @@ class Header extends StatelessWidget {
               child: Container(
                 width: 78,
                 height: 3,
-                color: Colors.cyan,
+                color: colorScheme.primary,
               ),
             ),
             const SizedBox(height: 20),

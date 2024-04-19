@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:vaccination/pages/author/login.dart';
-import 'package:vaccination/pages/introduction/check.dart';
-import 'package:vaccination/pages/introduction/free.dart';
-import 'package:vaccination/pages/introduction/prevent.dart';
-import 'package:vaccination/pages/introduction/splash.dart';
-import 'package:vaccination/pages/introduction/test.dart';
+import 'package:vaccination/views/author/login.dart';
+import 'package:vaccination/views/author/sign_up.dart';
+import 'package:vaccination/views/introduction/check.dart';
+import 'package:vaccination/views/introduction/free.dart';
+import 'package:vaccination/views/introduction/prevent.dart';
+import 'package:vaccination/views/introduction/splash.dart';
+import 'package:vaccination/views/introduction/test.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
           '/login': (context) => Login(),
           '/free': (context) => Free(),
           '/test': (context) => Test(),
+          '/signup': (context) => SignUp(),
         },
         theme: ThemeData(
           textTheme: const TextTheme(

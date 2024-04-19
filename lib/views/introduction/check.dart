@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:vaccination/pages/components/app_bar.dart';
-import 'package:vaccination/pages/components/button_blue.dart';
-import 'package:vaccination/pages/components/text_intro.dart';
+import 'package:vaccination/views/components/app_bar.dart';
+import 'package:vaccination/views/components/button_blue.dart';
+import 'package:vaccination/views/components/text_intro.dart';
 
-class Prevent extends StatelessWidget {
+class Check extends StatelessWidget {
   void onPressed(BuildContext context) {
-    Navigator.pushNamed(context, '/check');
+    Navigator.pushNamed(context, '/free');
   }
 
   void onLogin(BuildContext context) {
@@ -38,27 +38,34 @@ class Prevent extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 100),
+        padding: const EdgeInsets.only(bottom: 70),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Image(
-              image: AssetImage('assets/image/prevent.png'),
-              width: 350,
-              height: 350,
+              image: AssetImage('assets/image/check.png'),
+              width: 300,
+              height: 300,
               fit: BoxFit.contain,
             ),
             TextIntro(
-              text1: 'Prevent ',
+              text1: 'Check for the closest ',
               text2: 'COVID-19',
-              text3: ' and help',
-              text4: 'end the pandemic',
-              text5: 'Protect yourself and others around you by',
-              text6: 'taking the ',
+              text3: ' approved centres',
+              text4: 'close to your location',
+              text5: 'Worry no more about what clinic',
+              text6: ' offers the',
               text7: 'COVID-19 ',
-              text8: 'vaccine today..',
+              text8: 'vaccine you want.',
             ),
-            const SizedBox(height: 60),
+            Text('check with your with your device and scehdule an appointment',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyText2!.merge(
+                      const TextStyle(
+                        fontSize: 18,
+                      ),
+                    )),
+            const SizedBox(height: 50),
             ButtonBlue(
               horizontal: 250.0,
               vertical: 48.0,

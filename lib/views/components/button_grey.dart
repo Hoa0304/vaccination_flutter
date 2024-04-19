@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 
 class ButtonGrey extends StatelessWidget {
   var image;
@@ -15,7 +16,7 @@ class ButtonGrey extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(0),
-          backgroundColor: Colors.grey[100],
+          backgroundColor: colorScheme.background,
         ),
         onPressed: () {},
         child: Image(

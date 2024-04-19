@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vaccination/pages/components/app_bar.dart';
-import 'package:vaccination/pages/components/button_blue.dart';
+import 'package:vaccination/views/components/app_bar.dart';
+import 'package:vaccination/views/components/button_blue.dart';
 
 class Test extends StatelessWidget {
   void onPressed(BuildContext context) {
