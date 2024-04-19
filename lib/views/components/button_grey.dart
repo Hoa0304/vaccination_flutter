@@ -13,10 +13,14 @@ class ButtonGrey extends StatelessWidget {
     return Container(
       width: 40,
       height: 35,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
+      child: TextButton(
+        style: TextButton.styleFrom(
           padding: const EdgeInsets.all(0),
           backgroundColor: colorScheme.background,
+          shape: RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.circular(10), // Đặt border radius thành 0
+          ),
         ),
         onPressed: () {},
         child: Image(

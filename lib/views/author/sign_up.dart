@@ -193,6 +193,8 @@ class _SignUpState extends State<SignUp> {
               vertical: 50.0,
               text: 'Sign up',
               buttonFunction: () => onPressed(context),
+              colorbg: colorScheme.primary,
+              textColor: Colors.white,
             ),
             const SizedBox(
               height: 20.0,

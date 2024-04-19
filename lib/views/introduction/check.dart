@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/views/components/app_bar.dart';
 import 'package:vaccination/views/components/button_blue.dart';
 import 'package:vaccination/views/components/text_intro.dart';
@@ -27,7 +28,7 @@ class Check extends StatelessWidget {
                   icon: Text(
                     'Next',
                     style: Theme.of(context).textTheme.bodyText2!.merge(
-                          const TextStyle(fontSize: 15, color: Colors.cyan),
+                          TextStyle(color: colorScheme.primary),
                         ),
                   ),
                 ),
@@ -71,6 +72,8 @@ class Check extends StatelessWidget {
               vertical: 48.0,
               text: 'Get Started',
               buttonFunction: () => onLogin(context),
+              colorbg: colorScheme.primary,
+              textColor: Colors.white,
             )
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/views/components/app_bar.dart';
 import 'package:vaccination/views/components/button_blue.dart';
 import 'package:vaccination/views/components/text_intro.dart';
@@ -24,12 +25,10 @@ class Prevent extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () => onPressed(context),
-                  icon: Text(
-                    'Next',
-                    style: Theme.of(context).textTheme.bodyText2!.merge(
-                          const TextStyle(fontSize: 15, color: Colors.cyan),
-                        ),
-                  ),
+                  icon: Text('Next',
+                      style: Theme.of(context).textTheme.bodyText2!.merge(
+                            TextStyle(color: colorScheme.primary),
+                          )),
                 ),
               ],
             ),
@@ -64,6 +63,8 @@ class Prevent extends StatelessWidget {
               vertical: 48.0,
               text: 'Get Started',
               buttonFunction: () => onLogin(context),
+              colorbg: colorScheme.primary,
+              textColor: Colors.white,
             )
           ],
         ),

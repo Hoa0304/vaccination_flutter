@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/views/components/app_bar.dart';
 import 'package:vaccination/views/components/button_blue.dart';
 
@@ -26,7 +27,7 @@ class Test extends StatelessWidget {
                   icon: Text(
                     'Next',
                     style: Theme.of(context).textTheme.bodyText2!.merge(
-                          const TextStyle(fontSize: 15, color: Colors.cyan),
+                          TextStyle(color: colorScheme.primary),
                         ),
                   ),
                 ),
@@ -52,7 +53,7 @@ class Test extends StatelessWidget {
               font1: Theme.of(context)
                   .textTheme
                   .bodyText1!
-                  .merge(const TextStyle(color: Colors.cyan, fontSize: 25)),
+                  .merge(TextStyle(color: colorScheme.primary, fontSize: 25)),
               font2: Theme.of(context)
                   .textTheme
                   .bodyText1!
@@ -70,7 +71,7 @@ class Test extends StatelessWidget {
               font1: Theme.of(context)
                   .textTheme
                   .bodyText2!
-                  .merge(TextStyle(color: Colors.cyan, fontSize: 18)),
+                  .merge(TextStyle(color: colorScheme.primary, fontSize: 18)),
               font2: Theme.of(context).textTheme.bodyText2!.merge(
                     const TextStyle(
                       fontSize: 18,
@@ -90,6 +91,8 @@ class Test extends StatelessWidget {
               vertical: 48.0,
               text: 'Get Started',
               buttonFunction: () => onLogin(context),
+              colorbg: colorScheme.primary,
+              textColor: Colors.white,
             )
           ],
         ),

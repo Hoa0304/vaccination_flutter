@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 
 class TextIntro extends StatelessWidget {
   var text1;
@@ -36,7 +37,7 @@ class TextIntro extends StatelessWidget {
           Text(
             text2,
             style: Theme.of(context).textTheme.bodyText1!.merge(
-                  const TextStyle(color: Colors.cyan),
+                  TextStyle(color: colorScheme.primary),
                 ),
           ),
           Text(
@@ -59,7 +60,7 @@ class TextIntro extends StatelessWidget {
           Text(
             text7,
             style: Theme.of(context).textTheme.bodyText2!.merge(
-                  const TextStyle(color: Colors.cyan),
+                  TextStyle(color: colorScheme.primary),
                 ),
           ),
           Text(

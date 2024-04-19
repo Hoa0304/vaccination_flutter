@@ -4,22 +4,29 @@ import 'package:vaccination/theme/theme.dart';
 class ButtonBlue extends StatelessWidget {
   double horizontal;
   double vertical;
-  var text;
+  String text;
+  var colorbg;
+  var textColor;
   final VoidCallback buttonFunction;
   ButtonBlue(
-      {super.key,
+      {Key? key,
       required this.horizontal,
       required this.vertical,
       required this.text,
-      required this.buttonFunction});
+      required this.buttonFunction,
+      required this.colorbg,
+      required this.textColor});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
+    return TextButton(
+      style: TextButton.styleFrom(
         fixedSize: Size(horizontal, vertical),
-        backgroundColor: colorScheme.primary, // Màu nền
-        foregroundColor: Colors.white,
+        backgroundColor: colorbg,
+        foregroundColor: textColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
       onPressed: buttonFunction,
       child: Text(

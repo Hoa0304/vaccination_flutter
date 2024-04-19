@@ -143,6 +143,8 @@ class _LoginState extends State<Login> {
               vertical: 50.0,
               text: 'Login',
               buttonFunction: () => onPressed(context),
+              colorbg: colorScheme.primary,
+              textColor: Colors.white,
             ),
             const SizedBox(
               height: 20.0,
