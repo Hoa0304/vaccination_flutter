@@ -55,7 +55,9 @@ class _SignUpState extends State<SignUp> {
               controller: nameController,
               hintText: 'Your name',
               obscureText: false,
-              suffixIcon: Image.asset('assets/icon/mail.png'),
+              suffixIcon: Image.asset('assets/icon/user.png'),
+              maxwidth: 350,
+              maxHeight: 50,
             ),
             Input(
               text: 'E-mail',
@@ -63,6 +65,8 @@ class _SignUpState extends State<SignUp> {
               hintText: 'Your email',
               obscureText: false,
               suffixIcon: Image.asset('assets/icon/mail.png'),
+              maxwidth: 350,
+              maxHeight: 50,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +96,7 @@ class _SignUpState extends State<SignUp> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            'assets/icon/Twitter.png',
+                            'assets/icon/twemoji_flag.png',
                             width: 24.0,
                             height: 24.0,
                           ),
@@ -162,7 +166,7 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
               ],
             ),
@@ -172,6 +176,8 @@ class _SignUpState extends State<SignUp> {
               hintText: 'Enter your password',
               obscureText: false,
               suffixIcon: Image.asset('assets/icon/lock.png'),
+              maxwidth: 350,
+              maxHeight: 50,
             ),
             Input(
               text: 'Confirm Password',
@@ -179,6 +185,8 @@ class _SignUpState extends State<SignUp> {
               hintText: 'Re-enter your password',
               obscureText: false,
               suffixIcon: Image.asset('assets/icon/lock.png'),
+              maxwidth: 350,
+              maxHeight: 50,
             ),
             ButtonBlue(
               horizontal: 350.0,

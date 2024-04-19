@@ -72,6 +72,8 @@ flutter:
     - assets/icon/Twitter.png
     - assets/icon/mail.png
     - assets/icon/lock.png
+    - assets/icon/user.png
+    - assets/icon/twemoji_flag.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

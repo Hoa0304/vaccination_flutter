@@ -6,16 +6,20 @@ class Input extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final String text;
-  final Widget suffixIcon;
+  final Widget? suffixIcon;
+  final double maxHeight;
+  final double maxwidth;
 
-  const Input(
-      {Key? key,
-      required this.text,
-      required this.controller,
-      required this.hintText,
-      required this.obscureText,
-      required this.suffixIcon})
-      : super(key: key);
+  const Input({
+    Key? key,
+    required this.text,
+    required this.controller,
+    required this.hintText,
+    required this.obscureText,
+    this.suffixIcon,
+    required this.maxHeight,
+    required this.maxwidth,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +61,9 @@ class Input extends StatelessWidget {
                 ),
             contentPadding: const EdgeInsets.fromLTRB(10, 15, 0, 0),
             // contentPadding: const EdgeInsets.symmetric(vertical: 15),
-            suffixIcon: suffixIcon,
-            constraints: const BoxConstraints(maxWidth: 350, maxHeight: 50),
+            suffixIcon: suffixIcon != null ? suffixIcon : null,
+            constraints:
+                BoxConstraints(maxWidth: maxwidth, maxHeight: maxHeight),
           ),
         ),
         const SizedBox(

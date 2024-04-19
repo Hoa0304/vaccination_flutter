@@ -90,6 +90,8 @@ class _LoginState extends State<Login> {
               hintText: 'Enter your e-mail',
               obscureText: false,
               suffixIcon: Image.asset('assets/icon/mail.png'),
+              maxwidth: 350,
+              maxHeight: 50,
             ),
             Input(
               text: 'Password',
@@ -97,6 +99,8 @@ class _LoginState extends State<Login> {
               hintText: 'Enter your password',
               obscureText: false,
               suffixIcon: Image.asset('assets/icon/lock.png'),
+              maxwidth: 350,
+              maxHeight: 50,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
