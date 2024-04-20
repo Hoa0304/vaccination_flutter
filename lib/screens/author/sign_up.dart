@@ -1,5 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:vaccination/theme/theme.dart';
+import 'package:vaccination/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:vaccination/widgets/app_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
 import 'package:vaccination/widgets/input.dart';
@@ -11,14 +15,25 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final nameController = TextEditingController();
-  final usernameController = TextEditingController();
-  final phoneController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmController = TextEditingController();
+  final FirebaseAuthService _auth = FirebaseAuthService();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmController = TextEditingController();
 
   void onPressed(BuildContext context) {
     Navigator.pushNamed(context, '/signup');
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    usernameController.dispose();
+    phoneController.dispose();
+    passwordController.dispose();
+    confirmController.dispose();
+    super.dispose();
   }
 
   @override
@@ -192,7 +207,7 @@ class _SignUpState extends State<SignUp> {
               horizontal: 350.0,
               vertical: 50.0,
               text: 'Sign up',
-              buttonFunction: () => onPressed(context),
+              buttonFunction: _signUp,
               colorbg: colorScheme.primary,
               textColor: Colors.white,
             ),
@@ -203,5 +218,21 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  void _signUp() async {
+    String name = nameController.text;
+    String username = usernameController.text;
+    String phone = phoneController.text;
+    String password = passwordController.text;
+    String confirm = confirmController.text;
+    User? user = await _auth.signUpWithEmailAndPassword(username, password);
+
+    if (user != null) {
+      print("Created user ");
+      Navigator.pushNamed(context, "/home");
+    } else {
+      print("Error to create user");
+    }
   }
 }
