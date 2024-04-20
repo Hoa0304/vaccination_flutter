@@ -20,6 +20,10 @@ class _LoginState extends State<Login> {
     Navigator.pushNamed(context, '/signup');
   }
 
+  void onLogin(BuildContext context) {
+    Navigator.pushNamed(context, '/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -142,7 +146,7 @@ class _LoginState extends State<Login> {
               horizontal: 350.0,
               vertical: 50.0,
               text: 'Login',
-              buttonFunction: () => onPressed(context),
+              buttonFunction: () => onLogin(context),
               colorbg: colorScheme.primary,
               textColor: Colors.white,
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/screens/author/login.dart';
 import 'package:vaccination/screens/author/sign_up.dart';
+import 'package:vaccination/screens/homepage.dart';
 import 'package:vaccination/screens/introduction/check.dart';
 import 'package:vaccination/screens/introduction/free.dart';
 import 'package:vaccination/screens/introduction/prevent.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => SplashScreen(),
           '/prevent': (context) => Prevent(),
+          '/home': (context) => Homepage(),
           '/check': (context) => Check(),
           '/login': (context) => Login(),
           '/free': (context) => Free(),
