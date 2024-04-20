@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/buttonFun.dart';
 import 'package:vaccination/widgets/formCheckResult.dart';
 import 'package:vaccination/widgets/report.dart';
@@ -62,7 +63,7 @@ class Homepage extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.only(right: 20),
-                      height: 500, // Đặt chiều cao cố định cho CustomScrollView
+                      height: 350, //
                       child: CustomScrollView(
                         slivers: <Widget>[
                           SliverPadding(
@@ -75,11 +76,45 @@ class Homepage extends StatelessWidget {
                                 ButtonFun(
                                     onPressed: () {},
                                     imagePath: "vaccine.png",
-                                    btntext: "Vaccine")
+                                    btntext: "Vaccine"),
+                                ButtonFun(
+                                    onPressed: () {},
+                                    imagePath: "track 1.png",
+                                    btntext: "Lab Test"),
+                                ButtonFun(
+                                    onPressed: () {},
+                                    imagePath: "Image0000.png",
+                                    btntext: "Consultation"),
+                                ButtonFun(
+                                    onPressed: () {},
+                                    imagePath: "track 2.png",
+                                    btntext: "Quarantine")
                               ],
                             ),
                           ),
                         ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 30),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Row(
+                          children: <Widget>[
+                            Text(
+                              "COVID-19",
+                              style: TextStyle(
+                                  color: colorScheme.primary,
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 20),
+                            ),
+                            Text(
+                              " Symptoms",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w900, fontSize: 21),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ],

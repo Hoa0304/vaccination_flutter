@@ -29,7 +29,7 @@ class ButtonFun extends StatelessWidget {
               Image.asset('assets/image/' + imagePath),
               Text(
                 btntext,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+                style: TextStyle(fontSize: 19, fontWeight: FontWeight.w900),
               )
             ],
           ),
