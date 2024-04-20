@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/buttonFun.dart';
-import 'package:vaccination/widgets/button_blue.dart';
+import 'package:vaccination/widgets/bottom_bar.dart';
 import 'package:vaccination/widgets/formCheckResult.dart';
 import 'package:vaccination/widgets/report.dart';
 
@@ -12,7 +12,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(left: 30, top: 40),
+        margin: const EdgeInsets.only(left: 30, top: 40),
         child: Column(
           children: <Widget>[
             Container(
@@ -197,6 +197,7 @@ class Homepage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: _bottomBar(context),
     );
   }
 }
@@ -238,7 +239,7 @@ Widget _buildButton({
               Text(title,
                   style: Theme.of(context).textTheme.bodyText1!.merge(
                         TextStyle(
-                          fontSize: 14,
+                          fontSize: 13,
                           color: colorScheme.shadow,
                         ),
                       )),
@@ -254,6 +255,53 @@ Widget _buildButton({
               ),
             ],
           ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _bottomBar(BuildContext context) {
+  return Container(
+    margin: const EdgeInsets.only(
+      left: 20,
+      right: 20,
+      bottom: 10,
+    ),
+
+    width: 320, height: 60,
+    padding: const EdgeInsets.symmetric(
+        vertical: 10, horizontal: 10), // Reduce padding
+    decoration: BoxDecoration(
+      color: colorScheme.onSurface,
+      borderRadius: BorderRadius.circular(10), // Add border radius
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        BottomBar(
+          imagePath: 'assets/icons/home_blue.png',
+          onTap: () {
+            // Handle home icon tap
+          },
+        ),
+        BottomBar(
+          imagePath: 'assets/icons/activity.png',
+          onTap: () {
+            // Handle search icon tap
+          },
+        ),
+        BottomBar(
+          imagePath: 'assets/icons/clipboard.png',
+          onTap: () {
+            // Handle notifications icon tap
+          },
+        ),
+        BottomBar(
+          imagePath: 'assets/icons/userr.png',
+          onTap: () {
+            // Handle profile icon tap
+          },
         ),
       ],
     ),

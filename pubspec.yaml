@@ -85,6 +85,12 @@ flutter:
     - assets/icons/coughing.png
     - assets/icons/breathing.png
     - assets/icons/sense.png
+    - assets/icons/home_blue.png
+    - assets/icons/home.png
+    - assets/icons/activity.png
+    - assets/icons/clipboard.png
+    - assets/icons/userr.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
