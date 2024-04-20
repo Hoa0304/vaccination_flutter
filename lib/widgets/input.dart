@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:vaccination/theme/theme.dart';
 
 class Input extends StatelessWidget {
@@ -37,7 +38,8 @@ class Input extends StatelessWidget {
                 ),
           ),
         const SizedBox(height: 2),
-        TextField(
+        FormBuilderTextField(
+          name: text ?? '',
           controller: controller,
           obscureText: obscureText,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
@@ -61,9 +63,11 @@ class Input extends StatelessWidget {
                   ),
                 ),
             contentPadding: const EdgeInsets.fromLTRB(10, 15, 0, 0),
-            suffixIcon: suffixIcon != null ? suffixIcon : null,
-            constraints:
-                BoxConstraints(maxWidth: maxwidth, maxHeight: maxHeight),
+            suffixIcon: suffixIcon,
+            constraints: BoxConstraints(
+              maxWidth: maxwidth,
+              maxHeight: maxHeight,
+            ),
           ),
         ),
         const SizedBox(

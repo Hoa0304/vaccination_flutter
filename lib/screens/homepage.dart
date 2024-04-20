@@ -12,7 +12,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(left: 30, top: 40),
+        margin: const EdgeInsets.only(left: 20, top: 40),
         child: Column(
           children: <Widget>[
             Container(
@@ -262,6 +262,10 @@ Widget _buildButton({
 }
 
 Widget _bottomBar(BuildContext context) {
+  void onSchedule(BuildContext context) {
+    Navigator.pushNamed(context, '/schedule');
+  }
+
   return Container(
     margin: const EdgeInsets.only(
       left: 20,
@@ -281,26 +285,22 @@ Widget _bottomBar(BuildContext context) {
       children: [
         BottomBar(
           imagePath: 'assets/icons/home_blue.png',
-          onTap: () {
-            // Handle home icon tap
-          },
+          onTap: () {},
         ),
         BottomBar(
           imagePath: 'assets/icons/activity.png',
           onTap: () {
-            // Handle search icon tap
+            onSchedule(context);
           },
         ),
         BottomBar(
           imagePath: 'assets/icons/clipboard.png',
-          onTap: () {
-            // Handle notifications icon tap
-          },
+          onTap: () {},
         ),
         BottomBar(
           imagePath: 'assets/icons/userr.png',
           onTap: () {
-            // Handle profile icon tap
+            Navigator.pushNamed(context, '/profile');
           },
         ),
       ],

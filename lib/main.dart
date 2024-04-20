@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/providers/add_schedule.dart';
 import 'package:vaccination/screens/author/login.dart';
 import 'package:vaccination/screens/author/sign_up.dart';
 import 'package:vaccination/screens/homepage.dart';
@@ -8,6 +9,8 @@ import 'package:vaccination/screens/introduction/prevent.dart';
 import 'package:vaccination/screens/introduction/splash.dart';
 import 'package:vaccination/screens/introduction/test.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:vaccination/screens/profile.dart';
+import 'package:vaccination/screens/schedules.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -33,6 +36,9 @@ class MyApp extends StatelessWidget {
           '/free': (context) => Free(),
           '/test': (context) => Test(),
           '/signup': (context) => SignUp(),
+          '/schedule': (context) => Schedules(),
+          '/profile': (context) => Profile(),
+          '/add_schedule': (context) => AddSchedule()
         },
         theme: ThemeData(
           textTheme: const TextTheme(
