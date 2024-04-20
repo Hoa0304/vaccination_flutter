@@ -11,7 +11,8 @@ class formCheckResult extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(right: 20),
       child: Container(
-        padding: EdgeInsets.only(top: 20, bottom: 20, right: 20, left: 20),
+        padding:
+            const EdgeInsets.only(top: 20, bottom: 20, right: 20, left: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: colorScheme.onSurface,
@@ -26,20 +27,20 @@ class formCheckResult extends StatelessWidget {
                   Text(
                     "Check",
                     style: TextStyle(
-                        color: Colors.white,
+                        color: colorScheme.onPrimary,
                         fontSize: 18,
                         fontWeight: FontWeight.w900),
                   ),
                   Text(
                     " COVID-19",
                     style: TextStyle(
-                        color: Colors.blueAccent,
+                        color: colorScheme.primary,
                         fontSize: 18,
                         fontWeight: FontWeight.w900),
                   ),
                   Text(" test result",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: colorScheme.primary,
                           fontSize: 18,
                           fontWeight: FontWeight.w900))
                 ],
@@ -50,11 +51,12 @@ class formCheckResult extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromARGB(255, 153, 194, 215),
+                    fillColor: colorScheme.error,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                     labelText: "Please insert NIN number",
-                    labelStyle: TextStyle(color: Colors.white, fontSize: 16)),
+                    labelStyle: TextStyle(
+                        color: colorScheme.outlineVariant, fontSize: 16)),
               ),
             ),
             Container(
@@ -62,7 +64,7 @@ class formCheckResult extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromARGB(255, 153, 194, 215),
+                    fillColor: colorScheme.error,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                     labelText: "Please insert COVID-19 vaccine no",

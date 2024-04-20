@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 
 class ButtonFun extends StatelessWidget {
   final VoidCallback onPressed;
@@ -19,17 +20,18 @@ class ButtonFun extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Color.fromARGB(255, 194, 201, 194)),
+            color: colorScheme.background),
         padding: const EdgeInsets.all(20),
         child: Container(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/image/' + imagePath),
+              Image.asset('assets/image/' + imagePath, width: 80, height: 80),
               Text(
                 btntext,
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.w900),
+                style:
+                    const TextStyle(fontSize: 17, fontWeight: FontWeight.w900),
               )
             ],
           ),
