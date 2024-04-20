@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vaccination/views/components/app_bar.dart';
-import 'package:vaccination/views/components/button_blue.dart';
-import 'package:vaccination/views/components/button_grey.dart';
-import 'package:vaccination/views/components/input.dart';
+import 'package:vaccination/widgets/app_bar.dart';
+import 'package:vaccination/widgets/button_blue.dart';
+import 'package:vaccination/widgets/button_grey.dart';
+import 'package:vaccination/widgets/input.dart';
 
 import 'package:vaccination/theme/theme.dart';
 
@@ -89,7 +89,7 @@ class _LoginState extends State<Login> {
               controller: usernameController,
               hintText: 'Enter your e-mail',
               obscureText: false,
-              suffixIcon: Image.asset('assets/icon/mail.png'),
+              suffixIcon: Image.asset('assets/icons/mail.png'),
               maxwidth: 350,
               maxHeight: 50,
             ),
@@ -98,7 +98,7 @@ class _LoginState extends State<Login> {
               controller: passwordController,
               hintText: 'Enter your password',
               obscureText: false,
-              suffixIcon: Image.asset('assets/icon/lock.png'),
+              suffixIcon: Image.asset('assets/icons/lock.png'),
               maxwidth: 350,
               maxHeight: 50,
             ),
@@ -184,23 +184,23 @@ class SocialNextwork extends StatelessWidget {
           MainAxisAlignment.center, // Canh các nút theo trung tâm
       children: [
         ButtonGrey(
-          image: "assets/icon/Google.png",
+          image: "assets/icons/Google.png",
         ),
         const SizedBox(width: 20), // Khoảng cách giữa các nút
         ButtonGrey(
-          image: "assets/icon/Facebook.png",
+          image: "assets/icons/Facebook.png",
         ),
         const SizedBox(width: 20),
         ButtonGrey(
-          image: "assets/icon/Apple.png",
+          image: "assets/icons/Apple.png",
         ),
         const SizedBox(width: 20),
         ButtonGrey(
-          image: "assets/icon/Linked.png",
+          image: "assets/icons/Linked.png",
         ),
         const SizedBox(width: 20),
         ButtonGrey(
-          image: "assets/icon/Twitter.png",
+          image: "assets/icons/Twitter.png",
         ),
       ],
     );

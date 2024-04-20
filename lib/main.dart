@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:vaccination/views/author/login.dart';
-import 'package:vaccination/views/author/sign_up.dart';
-import 'package:vaccination/views/introduction/check.dart';
-import 'package:vaccination/views/introduction/free.dart';
-import 'package:vaccination/views/introduction/prevent.dart';
-import 'package:vaccination/views/introduction/splash.dart';
-import 'package:vaccination/views/introduction/test.dart';
+import 'package:vaccination/screens/author/login.dart';
+import 'package:vaccination/screens/author/sign_up.dart';
+import 'package:vaccination/screens/introduction/check.dart';
+import 'package:vaccination/screens/introduction/free.dart';
+import 'package:vaccination/screens/introduction/prevent.dart';
+import 'package:vaccination/screens/introduction/splash.dart';
+import 'package:vaccination/screens/introduction/test.dart';
 
 void main() {
   runApp(MyApp());

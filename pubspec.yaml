@@ -65,15 +65,15 @@ flutter:
     - assets/image/free.png
     - assets/image/test.png
     - assets/image/bg.png
-    - assets/icon/Google.png
-    - assets/icon/Facebook.png
-    - assets/icon/Apple.png
-    - assets/icon/Linked.png
-    - assets/icon/Twitter.png
-    - assets/icon/mail.png
-    - assets/icon/lock.png
-    - assets/icon/user.png
-    - assets/icon/twemoji_flag.png
+    - assets/icons/Google.png
+    - assets/icons/Facebook.png
+    - assets/icons/Apple.png
+    - assets/icons/Linked.png
+    - assets/icons/Twitter.png
+    - assets/icons/mail.png
+    - assets/icons/lock.png
+    - assets/icons/user.png
+    - assets/icons/twemoji_flag.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
-import 'package:vaccination/views/components/app_bar.dart';
-import 'package:vaccination/views/components/button_blue.dart';
-import 'package:vaccination/views/components/input.dart';
-import 'package:vaccination/views/components/text_intro.dart';
+import 'package:vaccination/widgets/app_bar.dart';
+import 'package:vaccination/widgets/button_blue.dart';
+import 'package:vaccination/widgets/input.dart';
+import 'package:vaccination/widgets/text_intro.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -55,7 +55,7 @@ class _SignUpState extends State<SignUp> {
               controller: nameController,
               hintText: 'Your name',
               obscureText: false,
-              suffixIcon: Image.asset('assets/icon/user.png'),
+              suffixIcon: Image.asset('assets/icons/user.png'),
               maxwidth: 350,
               maxHeight: 50,
             ),
@@ -64,7 +64,7 @@ class _SignUpState extends State<SignUp> {
               controller: usernameController,
               hintText: 'Your email',
               obscureText: false,
-              suffixIcon: Image.asset('assets/icon/mail.png'),
+              suffixIcon: Image.asset('assets/icons/mail.png'),
               maxwidth: 350,
               maxHeight: 50,
             ),
@@ -96,7 +96,7 @@ class _SignUpState extends State<SignUp> {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
-                            'assets/icon/twemoji_flag.png',
+                            'assets/icons/twemoji_flag.png',
                             width: 24.0,
                             height: 24.0,
                           ),
@@ -175,7 +175,7 @@ class _SignUpState extends State<SignUp> {
               controller: passwordController,
               hintText: 'Enter your password',
               obscureText: false,
-              suffixIcon: Image.asset('assets/icon/lock.png'),
+              suffixIcon: Image.asset('assets/icons/lock.png'),
               maxwidth: 350,
               maxHeight: 50,
             ),
@@ -184,7 +184,7 @@ class _SignUpState extends State<SignUp> {
               controller: confirmController,
               hintText: 'Re-enter your password',
               obscureText: false,
-              suffixIcon: Image.asset('assets/icon/lock.png'),
+              suffixIcon: Image.asset('assets/icons/lock.png'),
               maxwidth: 350,
               maxHeight: 50,
             ),

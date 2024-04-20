@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
-import 'package:vaccination/views/components/app_bar.dart';
-import 'package:vaccination/views/components/button_blue.dart';
-import 'package:vaccination/views/components/text_intro.dart';
+import 'package:vaccination/widgets/app_bar.dart';
+import 'package:vaccination/widgets/button_blue.dart';
+import 'package:vaccination/widgets/text_intro.dart';
 
-class Check extends StatelessWidget {
+class Prevent extends StatelessWidget {
   void onPressed(BuildContext context) {
-    Navigator.pushNamed(context, '/free');
+    Navigator.pushNamed(context, '/check');
   }
 
   void onLogin(BuildContext context) {
@@ -25,12 +25,10 @@ class Check extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () => onPressed(context),
-                  icon: Text(
-                    'Next',
-                    style: Theme.of(context).textTheme.bodyText2!.merge(
-                          TextStyle(color: colorScheme.primary),
-                        ),
-                  ),
+                  icon: Text('Next',
+                      style: Theme.of(context).textTheme.bodyText2!.merge(
+                            TextStyle(color: colorScheme.primary),
+                          )),
                 ),
               ],
             ),
@@ -39,34 +37,27 @@ class Check extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 70),
+        padding: const EdgeInsets.only(bottom: 100),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Image(
-              image: AssetImage('assets/image/check.png'),
-              width: 300,
-              height: 300,
+              image: AssetImage('assets/image/prevent.png'),
+              width: 350,
+              height: 350,
               fit: BoxFit.contain,
             ),
             TextIntro(
-              text1: 'Check for the closest ',
+              text1: 'Prevent ',
               text2: 'COVID-19',
-              text3: ' approved centres',
-              text4: 'close to your location',
-              text5: 'Worry no more about what clinic',
-              text6: ' offers the',
+              text3: ' and help',
+              text4: 'end the pandemic',
+              text5: 'Protect yourself and others around you by',
+              text6: 'taking the ',
               text7: 'COVID-19 ',
-              text8: 'vaccine you want.',
+              text8: 'vaccine today..',
             ),
-            Text('check with your with your device and scehdule an appointment',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2!.merge(
-                      const TextStyle(
-                        fontSize: 18,
-                      ),
-                    )),
-            const SizedBox(height: 50),
+            const SizedBox(height: 60),
             ButtonBlue(
               horizontal: 250.0,
               vertical: 48.0,

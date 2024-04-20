@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
-import 'package:vaccination/views/components/app_bar.dart';
-import 'package:vaccination/views/components/button_blue.dart';
+import 'package:vaccination/widgets/app_bar.dart';
+import 'package:vaccination/widgets/button_blue.dart';
+import 'package:vaccination/widgets/text_intro.dart';
 
-class Test extends StatelessWidget {
+class Check extends StatelessWidget {
   void onPressed(BuildContext context) {
-    Navigator.pushNamed(context, '/login');
+    Navigator.pushNamed(context, '/free');
   }
 
   void onLogin(BuildContext context) {
@@ -43,40 +44,20 @@ class Test extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Image(
-              image: AssetImage('assets/image/free.png'),
+              image: AssetImage('assets/image/check.png'),
               width: 300,
               height: 300,
               fit: BoxFit.contain,
             ),
-            TwoTextsInRow(
-              text: 'test and analysis',
-              font1: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .merge(TextStyle(color: colorScheme.primary, fontSize: 25)),
-              font2: Theme.of(context)
-                  .textTheme
-                  .bodyText1!
-                  .merge(const TextStyle(fontSize: 25)),
-            ),
-            Text('Worry no more about what clinic offers the ',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2!.merge(
-                      const TextStyle(
-                        fontSize: 18,
-                      ),
-                    )),
-            TwoTextsInRow(
-              text: 'vaccine you want.',
-              font1: Theme.of(context)
-                  .textTheme
-                  .bodyText2!
-                  .merge(TextStyle(color: colorScheme.primary, fontSize: 18)),
-              font2: Theme.of(context).textTheme.bodyText2!.merge(
-                    const TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
+            TextIntro(
+              text1: 'Check for the closest ',
+              text2: 'COVID-19',
+              text3: ' approved centres',
+              text4: 'close to your location',
+              text5: 'Worry no more about what clinic',
+              text6: ' offers the',
+              text7: 'COVID-19 ',
+              text8: 'vaccine you want.',
             ),
             Text('check with your with your device and scehdule an appointment',
                 textAlign: TextAlign.center,
@@ -97,30 +78,6 @@ class Test extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class TwoTextsInRow extends StatelessWidget {
-  final String text;
-  var font1;
-  var font2;
-
-  TwoTextsInRow({
-    super.key,
-    required this.text,
-    required this.font1,
-    required this.font2,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('COVID-19 ', textAlign: TextAlign.center, style: font1),
-        Text(text, textAlign: TextAlign.center, style: font2),
-      ],
     );
   }
 }
