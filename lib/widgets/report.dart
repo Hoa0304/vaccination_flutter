@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vaccination/theme/theme.dart';
 
 class Report extends StatelessWidget {
   const Report({
@@ -9,7 +10,7 @@ class Report extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/image/headnode.png"),
           fit: BoxFit.fitWidth,
@@ -26,7 +27,7 @@ class Report extends StatelessWidget {
                 Container(
                   child: Row(
                     children: <Widget>[
-                      Text(
+                      const Text(
                         "Hi, Oyinda",
                         style: TextStyle(
                           fontWeight: FontWeight.w900,
@@ -35,7 +36,7 @@ class Report extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.waving_hand_sharp,
                           color: Colors.amber,
                         ),
@@ -44,8 +45,8 @@ class Report extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
-                  child: Text(
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  child: const Text(
                     "Let's help you get vaccinated",
                     style: TextStyle(
                       fontSize: 16,
@@ -66,11 +67,11 @@ class Report extends StatelessWidget {
                           onPressed: () {},
                           icon: Icon(
                             Icons.info_rounded,
-                            color: Colors.blue,
+                            color: colorScheme.primary,
                           )),
                       Text(
                         "Emergency !",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: colorScheme.onPrimary),
                       )
                     ],
                   ),
@@ -81,20 +82,20 @@ class Report extends StatelessWidget {
                       Text(
                         "Have a",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: colorScheme.onPrimary,
                             fontSize: 18,
                             fontWeight: FontWeight.w900),
                       ),
                       Text(
                         " COVID-19",
                         style: TextStyle(
-                            color: Colors.blueAccent,
+                            color: colorScheme.primary,
                             fontSize: 18,
                             fontWeight: FontWeight.w900),
                       ),
                       Text(" case to report ?",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: colorScheme.onPrimary,
                               fontSize: 18,
                               fontWeight: FontWeight.w900))
                     ],
@@ -109,21 +110,20 @@ class Report extends StatelessWidget {
                             backgroundColor: Color.fromARGB(255, 39, 215, 255),
                             foregroundColor: Colors.white),
                         onPressed: () {},
-                        child: Text(
+                        child: const Text(
                           "Call Now",
                           softWrap: false,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(left: 10),
+                        margin: const EdgeInsets.only(left: 10),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              fixedSize: Size(150, 30),
-                              backgroundColor:
-                                  Color.fromARGB(255, 50, 101, 140),
-                              foregroundColor: Colors.white),
+                              fixedSize: const Size(150, 30),
+                              backgroundColor: colorScheme.error,
+                              foregroundColor: colorScheme.onPrimary),
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             "Find Centre",
                             softWrap: false,
                           ),

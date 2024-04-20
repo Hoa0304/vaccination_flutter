@@ -6,7 +6,7 @@ const colorScheme = ColorScheme(
   onPrimary: Color(0xFFFFFFFF),
   secondary: Color(0xFFAFACAE),
   onSecondary: Color(0xFFC7CECF),
-  error: Color(0xFFBA1A1A),
+  error: Color(0xFF0F3D6D),
   onError: Color(0xFFFFFFFF),
   background: Color(0xFFF5F5F5),
   onBackground: Color(0xFFE0E0E0),

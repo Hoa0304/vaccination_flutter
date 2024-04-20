@@ -5,14 +5,14 @@ class Input extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool obscureText;
-  final String text;
+  final String? text;
   final Widget? suffixIcon;
   final double maxHeight;
   final double maxwidth;
 
   const Input({
     Key? key,
-    required this.text,
+    this.text,
     required this.controller,
     required this.hintText,
     required this.obscureText,
@@ -26,15 +26,16 @@ class Input extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          text,
-          style: Theme.of(context).textTheme.bodyText2!.merge(
-                const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
+        if (text != null)
+          Text(
+            text!,
+            style: Theme.of(context).textTheme.bodyText2!.merge(
+                  const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
-        ),
+          ),
         const SizedBox(height: 2),
         TextField(
           controller: controller,
@@ -60,7 +61,6 @@ class Input extends StatelessWidget {
                   ),
                 ),
             contentPadding: const EdgeInsets.fromLTRB(10, 15, 0, 0),
-            // contentPadding: const EdgeInsets.symmetric(vertical: 15),
             suffixIcon: suffixIcon != null ? suffixIcon : null,
             constraints:
                 BoxConstraints(maxWidth: maxwidth, maxHeight: maxHeight),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/buttonFun.dart';
+import 'package:vaccination/widgets/bottom_bar.dart';
 import 'package:vaccination/widgets/formCheckResult.dart';
 import 'package:vaccination/widgets/report.dart';
 
@@ -11,17 +12,17 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(left: 20, top: 40),
+        margin: const EdgeInsets.only(left: 30, top: 40),
         child: Column(
           children: <Widget>[
             Container(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image(
+                  const Image(
                     image: AssetImage("assets/image/avt.png"),
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Column(
                       children: [
                         Text(
@@ -40,7 +41,7 @@ class Homepage extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.notifications),
+                    icon: const Icon(Icons.notifications),
                   )
                 ],
               ),
@@ -49,11 +50,11 @@ class Homepage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    Report(),
-                    formCheckResult(),
+                    const Report(),
+                    const formCheckResult(),
                     Container(
-                      margin: EdgeInsets.only(top: 20),
-                      child: Align(
+                      margin: const EdgeInsets.only(top: 20),
+                      child: const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "What do you need?",
@@ -62,12 +63,12 @@ class Homepage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(right: 20),
+                      padding: const EdgeInsets.only(right: 20),
                       height: 350, //
                       child: CustomScrollView(
                         slivers: <Widget>[
                           SliverPadding(
-                            padding: const EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(15),
                             sliver: SliverGrid.count(
                               crossAxisCount: 2,
                               mainAxisSpacing: 10,
@@ -96,7 +97,7 @@ class Homepage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Row(
@@ -108,13 +109,85 @@ class Homepage extends StatelessWidget {
                                   fontWeight: FontWeight.w900,
                                   fontSize: 20),
                             ),
-                            Text(
+                            const Text(
                               " Symptoms",
                               style: TextStyle(
                                   fontWeight: FontWeight.w900, fontSize: 21),
                             )
                           ],
                         ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    Container(
+                      margin: const EdgeInsets.only(left: 5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              _buildButton(
+                                context: context,
+                                imageAsset: 'assets/icons/headache.png',
+                                title: 'Constant',
+                                subtitle: 'Headache',
+                              ),
+                              const SizedBox(width: 20),
+                              _buildButton(
+                                context: context,
+                                imageAsset: 'assets/icons/throat.png',
+                                title: 'Sore',
+                                subtitle: 'Throat',
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              _buildButton(
+                                context: context,
+                                imageAsset: 'assets/icons/temperature.png',
+                                title: 'Elevated',
+                                subtitle: 'Temperature',
+                              ),
+                              const SizedBox(width: 20),
+                              _buildButton(
+                                context: context,
+                                imageAsset: 'assets/icons/coughing.png',
+                                title: 'Severe',
+                                subtitle: 'Coughing',
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              _buildButton(
+                                context: context,
+                                imageAsset: 'assets/icons/breathing.png',
+                                title: 'Difficulty',
+                                subtitle: 'Breathing',
+                              ),
+                              const SizedBox(width: 20),
+                              _buildButton(
+                                context: context,
+                                imageAsset: 'assets/icons/sense.png',
+                                title: 'Loss of',
+                                subtitle: 'Sense of Smell',
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -124,6 +197,113 @@ class Homepage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: _bottomBar(context),
     );
   }
+}
+
+Widget _buildButton({
+  required BuildContext context,
+  required String imageAsset,
+  required String title,
+  required String subtitle,
+}) {
+  final colorScheme = Theme.of(context).colorScheme;
+
+  return TextButton(
+    onPressed: () {
+      // Handle button click
+    },
+    style: TextButton.styleFrom(
+      fixedSize: Size(160, 70),
+      padding: const EdgeInsets.only(left: 10, top: 13),
+      backgroundColor: Colors.grey[200],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+    ),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Image.asset(
+          imageAsset,
+          width: 40,
+          height: 40,
+          fit: BoxFit.contain,
+        ),
+        const SizedBox(width: 5),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title,
+                  style: Theme.of(context).textTheme.bodyText1!.merge(
+                        TextStyle(
+                          fontSize: 13,
+                          color: colorScheme.shadow,
+                        ),
+                      )),
+              const SizedBox(height: 2),
+              Text(
+                subtitle,
+                style: Theme.of(context).textTheme.bodyText1!.merge(
+                      TextStyle(
+                        fontSize: 13,
+                        color: colorScheme.shadow,
+                      ),
+                    ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _bottomBar(BuildContext context) {
+  return Container(
+    margin: const EdgeInsets.only(
+      left: 20,
+      right: 20,
+      bottom: 10,
+    ),
+
+    width: 320, height: 60,
+    padding: const EdgeInsets.symmetric(
+        vertical: 10, horizontal: 10), // Reduce padding
+    decoration: BoxDecoration(
+      color: colorScheme.onSurface,
+      borderRadius: BorderRadius.circular(10), // Add border radius
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        BottomBar(
+          imagePath: 'assets/icons/home_blue.png',
+          onTap: () {
+            // Handle home icon tap
+          },
+        ),
+        BottomBar(
+          imagePath: 'assets/icons/activity.png',
+          onTap: () {
+            // Handle search icon tap
+          },
+        ),
+        BottomBar(
+          imagePath: 'assets/icons/clipboard.png',
+          onTap: () {
+            // Handle notifications icon tap
+          },
+        ),
+        BottomBar(
+          imagePath: 'assets/icons/userr.png',
+          onTap: () {
+            // Handle profile icon tap
+          },
+        ),
+      ],
+    ),
+  );
 }
