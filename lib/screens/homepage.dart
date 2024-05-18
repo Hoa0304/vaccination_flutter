@@ -303,6 +303,7 @@ Widget _bottomBar(BuildContext context) {
             Navigator.pushNamed(context, '/profile');
           },
         ),
+        BottomBar(onTap: () {}, imagePath: 'assets/icons/cloud_blue.png')
       ],
     ),
   );

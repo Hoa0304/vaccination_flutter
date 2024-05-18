@@ -122,6 +122,7 @@ class _SchedulesState extends State<Schedules> {
               Navigator.pushNamed(context, '/profile');
             },
           ),
+          BottomBar(onTap: () {}, imagePath: 'assets/icons/cloud_blue.png')
         ],
       ),
     );
