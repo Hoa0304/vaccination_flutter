@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:vaccination/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:vaccination/widgets/app_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
@@ -40,6 +38,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Column(
             children: [
               Padding(
@@ -120,7 +119,7 @@ class _LoginState extends State<Login> {
                   maxHeight: 50,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
                       children: [
@@ -136,15 +135,20 @@ class _LoginState extends State<Login> {
                         const Text(
                           'Remember me',
                           style: TextStyle(
+                            fontSize: 16,
                             color: Colors.black45,
                           ),
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      width: 7,
+                    ),
                     GestureDetector(
                       child: Text(
                         'Forget password?',
                         style: TextStyle(
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: colorScheme.primary,
                         ),

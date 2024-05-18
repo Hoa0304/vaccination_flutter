@@ -83,6 +83,7 @@ flutter:
     - assets/icons/mail.png
     - assets/icons/lock.png
     - assets/icons/user.png
+    - assets/icons/user_blue.png
     - assets/icons/twemoji_flag.png
     - assets/icons/headache.png
     - assets/icons/throat.png
