@@ -101,7 +101,7 @@ class _ProfileState extends State<Profile> {
                       ),
                       onPressed: () {},
                       child: Image(
-                        image: AssetImage('assets/icons/clipboard.png'),
+                        image: AssetImage('assets/icons/clipboard_blue.png'),
                         width: 30,
                         height: 30,
                         fit: BoxFit.contain,

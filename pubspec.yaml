@@ -96,6 +96,7 @@ flutter:
     - assets/icons/home.png
     - assets/icons/activity.png
     - assets/icons/clipboard.png
+    - assets/icons/clipboard_blue.png
     - assets/icons/userr.png
     - assets/icons/cloud.png
     - assets/icons/cloud_blue.png
