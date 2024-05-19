@@ -198,6 +198,8 @@ class Homepage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: _bottomBar(context),
+      floatingActionButton: _floatingActionButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
@@ -261,50 +263,82 @@ Widget _buildButton({
   );
 }
 
-Widget _bottomBar(BuildContext context) {
-  void onSchedule(BuildContext context) {
-    Navigator.pushNamed(context, '/schedule');
-  }
+void onSchedule(BuildContext context) {
+  Navigator.pushNamed(context, '/schedule');
+}
 
+Widget _bottomBar(BuildContext context) {
   return Container(
     margin: const EdgeInsets.only(
       left: 20,
       right: 20,
       bottom: 10,
     ),
-
-    width: 320, height: 60,
-    padding: const EdgeInsets.symmetric(
-        vertical: 10, horizontal: 10), // Reduce padding
+    width: 320,
+    height: 60,
+    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     decoration: BoxDecoration(
       color: colorScheme.onSurface,
-      borderRadius: BorderRadius.circular(10), // Add border radius
+      borderRadius: BorderRadius.circular(10),
     ),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        BottomBar(
-          imagePath: 'assets/icons/home_blue.png',
-          onTap: () {},
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/home_blue.png',
+            onTap: () {},
+          ),
         ),
-        BottomBar(
-          imagePath: 'assets/icons/activity.png',
-          onTap: () {
-            onSchedule(context);
-          },
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/clipboard.png',
+            onTap: () {
+              onSchedule(context);
+            },
+          ),
         ),
-        BottomBar(
-          imagePath: 'assets/icons/clipboard.png',
-          onTap: () {},
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/cloud_blue.png',
+            onTap: () {},
+          ),
         ),
-        BottomBar(
-          imagePath: 'assets/icons/userr.png',
-          onTap: () {
-            Navigator.pushNamed(context, '/profile');
-          },
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/userr.png',
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+          ),
         ),
-        BottomBar(onTap: () {}, imagePath: 'assets/icons/cloud_blue.png')
       ],
+    ),
+  );
+}
+
+Widget _floatingActionButton(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 50.0),
+    child: Align(
+      alignment: Alignment.bottomCenter,
+      child: Transform.rotate(
+        angle: 3 * 3.14159 / 4, // Xoay 135 độ
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            color: colorScheme.primary,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Center(
+            child: Transform.rotate(
+              angle: -3.14159 / 1.3,
+              child: Image.asset('assets/icons/clock.png'),
+            ),
+          ),
+        ),
+      ),
     ),
   );
 }

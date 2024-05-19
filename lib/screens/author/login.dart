@@ -5,6 +5,7 @@ import 'package:vaccination/widgets/app_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
 import 'package:vaccination/widgets/button_grey.dart';
 import 'package:vaccination/widgets/input.dart';
+import 'package:flutter/src/material/theme_data.dart';
 
 import 'package:vaccination/theme/theme.dart';
 
@@ -119,7 +120,7 @@ class _LoginState extends State<Login> {
                   maxHeight: 50,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
@@ -131,6 +132,8 @@ class _LoginState extends State<Login> {
                             });
                           },
                           activeColor: colorScheme.primary,
+                          visualDensity:
+                              VisualDensity(horizontal: -4.0, vertical: 0.0),
                         ),
                         const Text(
                           'Remember me',

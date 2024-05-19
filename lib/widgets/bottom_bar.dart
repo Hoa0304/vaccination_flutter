@@ -18,8 +18,6 @@ class BottomBar extends StatelessWidget {
         children: [
           Image.asset(
             imagePath,
-            width: 35,
-            height: 35,
           ),
         ],
       ),

@@ -101,6 +101,10 @@ flutter:
     - assets/icons/cloud.png
     - assets/icons/cloud_blue.png
     - assets/image/me.png
+    - assets/icons/clock.png
+    - assets/icons/message.png
+    - assets/icons/change.png
+    - assets/icons/map.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

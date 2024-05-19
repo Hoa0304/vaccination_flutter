@@ -33,7 +33,7 @@ class ButtonBlue extends StatelessWidget {
         text,
         style: Theme.of(context).textTheme.bodyText1!.merge(
               const TextStyle(fontSize: 20, color: Colors.white),
-            ), // Kích thước chữ
+            ),
       ),
     );
   }

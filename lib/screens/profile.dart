@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/bottom_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
+import 'package:vaccination/widgets/text_button.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -11,6 +12,10 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   void onLogin(BuildContext context) {
     Navigator.pushNamed(context, '/login');
+  }
+
+  void onSchedule(BuildContext context) {
+    Navigator.pushNamed(context, '/schedule');
   }
 
   @override
@@ -68,71 +73,72 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
+            const SizedBox(height: 25.0),
+            textButton(
+              function: () => onSchedule(context),
+              text: 'Vaccine Scehdule Record',
+              icon: 'assets/icons/clipboard_blue.png',
+            ),
+            const SizedBox(height: 25.0),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Settings',
+                style: Theme.of(context).textTheme.bodyText1!.merge(
+                      TextStyle(
+                        color: colorScheme.shadow,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+              ),
+            ),
+            const SizedBox(height: 25.0),
+            textButton(
+              function: () => onSchedule(context),
+              text: 'Change Password',
+              icon: 'assets/icons/change.png',
+            ),
+            const SizedBox(height: 25.0),
+            textButton(
+              function: () => onSchedule(context),
+              text: 'Set Default Address',
+              icon: 'assets/icons/map.png',
+            ),
+            const SizedBox(height: 25.0),
+            textButton(
+              function: () => onSchedule(context),
+              text: 'Group',
+              icon: 'assets/icons/message.png',
+            ),
+            const SizedBox(height: 20.0),
             TextButton(
               onPressed: () {
-                // Xử lý sự kiện khi nút được nhấn
+                onLogin(context);
               },
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(colorScheme.onPrimary),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                padding:
-                    MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(12.0)),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+              style: TextButton.styleFrom(
+                fixedSize: Size(250, 45),
+                backgroundColor: colorScheme.onPrimary,
+                foregroundColor: colorScheme.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: BorderSide(
+                    color: colorScheme.primary,
+                    width: 2.0,
                   ),
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 40,
-                    height: 40,
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(0),
-                        backgroundColor: colorScheme.onSurface,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              10), // Đặt border radius thành 0
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Image(
-                        image: AssetImage('assets/icons/clipboard_blue.png'),
-                        width: 30,
-                        height: 30,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 8.0),
-                  Text(
-                    'Vaccine Scehdule Record',
-                    style: TextStyle(color: colorScheme.shadow),
-                  ),
-                  SizedBox(width: 8.0),
-                  Icon(
-                    Icons.arrow_forward,
-                    color: colorScheme.outlineVariant,
-                  ),
-                ],
+              child: const Text(
+                'Log out',
+                style: TextStyle(fontSize: 18),
               ),
-            ),
-            ButtonBlue(
-              horizontal: 250.0,
-              vertical: 48.0,
-              text: 'Log out',
-              buttonFunction: () => onLogin(context),
-              colorbg: colorScheme.primary,
-              textColor: Colors.white,
             ),
           ],
         ),
       ),
       bottomNavigationBar: _bottomBar(context),
+      floatingActionButton: _floatingActionButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
@@ -175,11 +181,11 @@ class profile extends StatelessWidget {
   }
 }
 
-Widget _bottomBar(BuildContext context) {
-  void onSchedule(BuildContext context) {
-    Navigator.pushNamed(context, '/schedule');
-  }
+void onSchedule(BuildContext context) {
+  Navigator.pushNamed(context, '/schedule');
+}
 
+Widget _bottomBar(BuildContext context) {
   void onHome(BuildContext context) {
     Navigator.pushNamed(context, '/home');
   }
@@ -190,42 +196,71 @@ Widget _bottomBar(BuildContext context) {
       right: 20,
       bottom: 10,
     ),
-
-    width: 320, height: 60,
-    padding: const EdgeInsets.symmetric(
-        vertical: 10, horizontal: 10), // Reduce padding
+    width: 320,
+    height: 60,
+    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     decoration: BoxDecoration(
       color: colorScheme.onSurface,
-      borderRadius: BorderRadius.circular(10), // Add border radius
+      borderRadius: BorderRadius.circular(10),
     ),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        BottomBar(
-          imagePath: 'assets/icons/home.png',
-          onTap: () {
-            onHome(context);
-          },
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/home.png',
+            onTap: () {
+              onHome(context);
+            },
+          ),
         ),
-        BottomBar(
-          imagePath: 'assets/icons/activity.png',
-          onTap: () {
-            onSchedule(context);
-          },
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/clipboard.png',
+            onTap: () {
+              onSchedule(context);
+            },
+          ),
         ),
-        BottomBar(
-          imagePath: 'assets/icons/clipboard.png',
-          onTap: () {},
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/cloud_blue.png',
+            onTap: () {},
+          ),
         ),
-        BottomBar(
-          imagePath: 'assets/icons/user_blue.png',
-          onTap: () {},
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/user_blue.png',
+            onTap: () {},
+          ),
         ),
-        BottomBar(
-          imagePath: 'assets/icons/cloud_blue.png',
-          onTap: () {},
-        )
       ],
+    ),
+  );
+}
+
+Widget _floatingActionButton(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 50.0),
+    child: Align(
+      alignment: Alignment.bottomCenter,
+      child: Transform.rotate(
+        angle: 3 * 3.14159 / 4, // Xoay 135 độ
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            color: colorScheme.primary,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Center(
+            child: Transform.rotate(
+              angle: -3.14159 / 1.3,
+              child: Image.asset('assets/icons/clock.png'),
+            ),
+          ),
+        ),
+      ),
     ),
   );
 }
