@@ -64,47 +64,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/image/prevent.png
-    - assets/image/avt.png
-    - assets/image/headnode.png
-    - assets/image/track 1.png
-    - assets/image/track 2.png
-    - assets/image/vaccine.png
-    - assets/image/Image0000.png
-    - assets/image/check.png
-    - assets/image/free.png
-    - assets/image/test.png
-    - assets/image/bg.png
-    - assets/icons/Google.png
-    - assets/icons/Facebook.png
-    - assets/icons/Apple.png
-    - assets/icons/Linked.png
-    - assets/icons/Twitter.png
-    - assets/icons/mail.png
-    - assets/icons/lock.png
-    - assets/icons/user.png
-    - assets/icons/user_blue.png
-    - assets/icons/twemoji_flag.png
-    - assets/icons/headache.png
-    - assets/icons/throat.png
-    - assets/icons/temperature.png
-    - assets/icons/coughing.png
-    - assets/icons/breathing.png
-    - assets/icons/sense.png
-    - assets/icons/home_blue.png
-    - assets/icons/activity_blue.png
-    - assets/icons/home.png
-    - assets/icons/activity.png
-    - assets/icons/clipboard.png
-    - assets/icons/clipboard_blue.png
-    - assets/icons/userr.png
-    - assets/icons/cloud.png
-    - assets/icons/cloud_blue.png
-    - assets/image/me.png
-    - assets/icons/clock.png
-    - assets/icons/message.png
-    - assets/icons/change.png
-    - assets/icons/map.png
+    - assets/image/
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -301,7 +301,9 @@ Widget _bottomBar(BuildContext context) {
         Expanded(
           child: BottomBar(
             imagePath: 'assets/icons/cloud_blue.png',
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, '/weather');
+            },
           ),
         ),
         Expanded(

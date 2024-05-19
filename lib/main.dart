@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vaccination/providers/add_schedule.dart';
 import 'package:vaccination/screens/author/login.dart';
 import 'package:vaccination/screens/author/sign_up.dart';
+import 'package:vaccination/screens/cloud.dart';
 import 'package:vaccination/screens/homepage.dart';
 import 'package:vaccination/screens/introduction/check.dart';
 import 'package:vaccination/screens/introduction/free.dart';
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
           '/signup': (context) => SignUp(),
           '/schedule': (context) => Schedules(),
           '/profile': (context) => Profile(),
-          '/add_schedule': (context) => AddSchedule()
+          '/add_schedule': (context) => AddSchedule(),
+          '/weather': (context) => Cloud()
         },
         theme: ThemeData(
           textTheme: const TextTheme(

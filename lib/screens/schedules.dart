@@ -111,7 +111,9 @@ class _SchedulesState extends State<Schedules> {
           Expanded(
             child: BottomBar(
               imagePath: 'assets/icons/cloud_blue.png',
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/weather');
+              },
             ),
           ),
           Expanded(
