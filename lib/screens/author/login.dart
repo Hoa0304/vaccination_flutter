@@ -5,7 +5,6 @@ import 'package:vaccination/widgets/app_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
 import 'package:vaccination/widgets/button_grey.dart';
 import 'package:vaccination/widgets/input.dart';
-import 'package:flutter/src/material/theme_data.dart';
 
 import 'package:vaccination/theme/theme.dart';
 

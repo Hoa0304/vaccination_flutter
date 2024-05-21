@@ -12,29 +12,48 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.only(left: 20, top: 40),
+        margin: const EdgeInsets.only(
+          left: 20,
+          top: 40,
+        ),
         child: Column(
           children: <Widget>[
             Container(
+              margin: const EdgeInsets.only(
+                bottom: 5,
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Image(
-                    image: AssetImage("assets/image/avt.png"),
+                  Container(
+                    width: 50.0,
+                    height: 50.0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12.0),
+                      child: Image.asset(
+                        'assets/image/me.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  const Expanded(
+                  Expanded(
                     child: Column(
                       children: [
                         Text(
                           "Current Location",
-                          style: TextStyle(color: Colors.black26, fontSize: 16),
+                          style: Theme.of(context).textTheme.bodyText2!.merge(
+                                const TextStyle(
+                                    color: Color(0xFF808080), fontSize: 15),
+                              ),
                         ),
                         Text(
-                          "Badagry Lagos, Nigeria",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w900,
-                            fontSize: 18,
-                          ),
+                          "Hoa Xuan, Cam Le",
+                          style: Theme.of(context).textTheme.bodyText2!.merge(
+                                TextStyle(
+                                    color: colorScheme.shadow,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18),
+                              ),
                         ),
                       ],
                     ),
@@ -199,6 +218,7 @@ class Homepage extends StatelessWidget {
       ),
       bottomNavigationBar: _bottomBar(context),
       floatingActionButton: _floatingActionButton(context),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -217,7 +237,7 @@ Widget _buildButton({
       // Handle button click
     },
     style: TextButton.styleFrom(
-      fixedSize: Size(160, 70),
+      fixedSize: const Size(160, 70),
       padding: const EdgeInsets.only(left: 10, top: 13),
       backgroundColor: Colors.grey[200],
       shape: RoundedRectangleBorder(
@@ -268,54 +288,86 @@ void onSchedule(BuildContext context) {
 }
 
 Widget _bottomBar(BuildContext context) {
-  return Container(
-    margin: const EdgeInsets.only(
-      left: 20,
-      right: 20,
-      bottom: 10,
-    ),
-    width: 320,
-    height: 60,
-    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-    decoration: BoxDecoration(
-      color: colorScheme.onSurface,
-      borderRadius: BorderRadius.circular(10),
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: BottomBar(
-            imagePath: 'assets/icons/home_blue.png',
-            onTap: () {},
-          ),
+  return Stack(
+    children: [
+      Container(
+        margin: const EdgeInsets.only(
+          left: 20,
+          right: 20,
+          bottom: 10,
         ),
-        Expanded(
-          child: BottomBar(
-            imagePath: 'assets/icons/clipboard.png',
-            onTap: () {
-              onSchedule(context);
-            },
-          ),
+        width: 350,
+        height: 60,
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        decoration: BoxDecoration(
+          color: colorScheme.onSurface,
+          borderRadius: BorderRadius.circular(10),
         ),
-        Expanded(
-          child: BottomBar(
-            imagePath: 'assets/icons/cloud_blue.png',
-            onTap: () {
-              Navigator.pushNamed(context, '/weather');
-            },
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: BottomBar(
+                imagePath: 'assets/icons/home_blue.png',
+                onTap: () {},
+              ),
+            ),
+            Expanded(
+              child: BottomBar(
+                imagePath: 'assets/icons/clipboard.png',
+                onTap: () {
+                  onSchedule(context);
+                },
+              ),
+            ),
+            Expanded(
+              child: BottomBar(
+                imagePath: 'assets/icons/cloud_blue.png',
+                onTap: () {
+                  Navigator.pushNamed(context, '/weather');
+                },
+              ),
+            ),
+            Expanded(
+              child: BottomBar(
+                imagePath: 'assets/icons/userr.png',
+                onTap: () {
+                  Navigator.pushNamed(context, '/profile');
+                },
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: BottomBar(
-            imagePath: 'assets/icons/userr.png',
-            onTap: () {
-              Navigator.pushNamed(context, '/profile');
-            },
-          ),
-        ),
-      ],
-    ),
+      ),
+      // Positioned(
+      //   bottom: 5,
+      //   left: 20,
+      //   right: 20,
+      //   child: Padding(
+      //     padding: const EdgeInsets.only(bottom: 50.0),
+      //     child: Align(
+      //       alignment: Alignment.bottomCenter,
+      //       child: Transform.rotate(
+      //         angle: 45 * 3.14159 / 180,
+      //         child: Container(
+      //           width: 40,
+      //           height: 40,
+      //           decoration: BoxDecoration(
+      //             color: colorScheme.primary,
+      //             borderRadius: BorderRadius.circular(5),
+      //           ),
+      //           child: Center(
+      //             child: Transform.rotate(
+      //               angle: -3.14159 / 1.3,
+      //               child: Image.asset('assets/icons/clock.png'),
+      //             ),
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // )
+    ],
   );
 }
 

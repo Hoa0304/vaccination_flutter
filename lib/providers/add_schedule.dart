@@ -17,17 +17,39 @@ class _AddScheduleState extends State<AddSchedule> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Schedule"),
+        title: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Expanded(
+            child: Text(
+              "Book an appointment",
+              style: Theme.of(context).textTheme.bodyText1!.merge(
+                    TextStyle(
+                      color: colorScheme.shadow,
+                      fontSize: 20,
+                    ),
+                  ),
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications),
+          )
+        ]),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: <Widget>[
+        padding: const EdgeInsets.only(
+          left: 40,
+          top: 10,
+        ),
+        children: [
           Input(
             text: 'Name',
             controller: nameController,
             hintText: 'Enter the appointment name',
             obscureText: false,
-            maxwidth: 350,
+            maxwidth: 300,
             maxHeight: 50,
           ),
           Input(
@@ -35,7 +57,7 @@ class _AddScheduleState extends State<AddSchedule> {
             controller: nameController,
             hintText: 'Enter the appointment address',
             obscureText: false,
-            maxwidth: 350,
+            maxwidth: 300,
             maxHeight: 50,
           ),
           Column(

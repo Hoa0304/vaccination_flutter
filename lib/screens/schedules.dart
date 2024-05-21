@@ -64,6 +64,13 @@ class _SchedulesState extends State<Schedules> {
                 ),
               ),
             ),
+            Container(
+                child: IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {
+                Navigator.pushNamed(context, '/add_schedule');
+              },
+            ))
           ],
         ),
       ),
@@ -137,8 +144,8 @@ class _SchedulesState extends State<Schedules> {
         child: Transform.rotate(
           angle: 3 * 3.14159 / 4, // Xoay 135 độ
           child: Container(
-            width: 40,
-            height: 40,
+            width: 35,
+            height: 35,
             decoration: BoxDecoration(
               color: colorScheme.primary,
               borderRadius: BorderRadius.circular(5),
