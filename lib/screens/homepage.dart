@@ -295,57 +295,36 @@ void onSchedule(BuildContext context) {
 }
 
 Widget _bottomBar(BuildContext context) {
-  return Stack(
-    children: [
-      Container(
-        margin: const EdgeInsets.only(
-          left: 20,
-          right: 20,
-          bottom: 10,
+  return Container(
+    margin: const EdgeInsets.only(
+      left: 20,
+      right: 20,
+      bottom: 10,
+    ),
+    width: 350,
+    height: 60,
+    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+    decoration: BoxDecoration(
+      color: colorScheme.onSurface,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/home_blue.png',
+            onTap: () {},
+          ),
         ),
-        width: 350,
-        height: 60,
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        decoration: BoxDecoration(
-          color: colorScheme.onSurface,
-          borderRadius: BorderRadius.circular(10),
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/clipboard.png',
+            onTap: () {
+              onSchedule(context);
+            },
+          ),
         ),
-<<<<<<< Updated upstream
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: BottomBar(
-                imagePath: 'assets/icons/home_blue.png',
-                onTap: () {},
-              ),
-            ),
-            Expanded(
-              child: BottomBar(
-                imagePath: 'assets/icons/clipboard.png',
-                onTap: () {
-                  onSchedule(context);
-                },
-              ),
-            ),
-            Expanded(
-              child: BottomBar(
-                imagePath: 'assets/icons/cloud_blue.png',
-                onTap: () {
-                  Navigator.pushNamed(context, '/weather');
-                },
-              ),
-            ),
-            Expanded(
-              child: BottomBar(
-                imagePath: 'assets/icons/userr.png',
-                onTap: () {
-                  Navigator.pushNamed(context, '/profile');
-                },
-              ),
-            ),
-          ],
-=======
         Expanded(
           child: BottomBar(
             imagePath: 'assets/icons/cloud_blue.png',
@@ -354,38 +333,17 @@ Widget _bottomBar(BuildContext context) {
               Navigator.pushNamed(context, '/weather');
             },
           ),
->>>>>>> Stashed changes
         ),
-      ),
-      // Positioned(
-      //   bottom: 5,
-      //   left: 20,
-      //   right: 20,
-      //   child: Padding(
-      //     padding: const EdgeInsets.only(bottom: 50.0),
-      //     child: Align(
-      //       alignment: Alignment.bottomCenter,
-      //       child: Transform.rotate(
-      //         angle: 45 * 3.14159 / 180,
-      //         child: Container(
-      //           width: 40,
-      //           height: 40,
-      //           decoration: BoxDecoration(
-      //             color: colorScheme.primary,
-      //             borderRadius: BorderRadius.circular(5),
-      //           ),
-      //           child: Center(
-      //             child: Transform.rotate(
-      //               angle: -3.14159 / 1.3,
-      //               child: Image.asset('assets/icons/clock.png'),
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // )
-    ],
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/userr.png',
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+          ),
+        ),
+      ],
+    ),
   );
 }
 

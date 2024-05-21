@@ -71,7 +71,7 @@ class Input extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 30,
+          height: 20,
         ),
       ],
     );

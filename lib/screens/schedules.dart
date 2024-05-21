@@ -18,63 +18,81 @@ class _SchedulesState extends State<Schedules> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: const EdgeInsets.only(left: 10, top: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Lịch',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: colorScheme.onPrimary,
+      body: Stack(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(left: 10, top: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Lịch',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: colorScheme.onPrimary,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                TableCalendar(
+                  firstDay: DateTime.utc(2010, 10, 16),
+                  lastDay: DateTime.utc(2030, 3, 14),
+                  focusedDay: _focusedDay,
+                  selectedDayPredicate: (day) {
+                    return isSameDay(_selectedDay, day);
+                  },
+                  calendarFormat: _calendarFormat,
+                  onDaySelected: (selectedDay, focusedDay) {
+                    setState(() {
+                      _selectedDay = selectedDay;
+                      _focusedDay = focusedDay;
+                    });
+                  },
+                  onFormatChanged: (format) {
+                    setState(() {
+                      _calendarFormat = format;
+                    });
+                  },
+                  daysOfWeekHeight: 30.0,
+                  calendarStyle: CalendarStyle(
+                    todayDecoration: BoxDecoration(
+                      color: colorScheme.primary,
+                      shape: BoxShape.circle,
+                    ),
+                    selectedDecoration: BoxDecoration(
+                      color: colorScheme.secondary,
+                      shape: BoxShape.circle,
+                    ),
+                    weekendTextStyle: TextStyle(
+                      color: colorScheme.error,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 650,
+            left: 330,
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: colorScheme.primary,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: IconButton(
+                icon: Icon(
+                  Icons.add,
+                  color: colorScheme.onPrimary,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/add_schedule');
+                },
               ),
             ),
-            const SizedBox(height: 20),
-            TableCalendar(
-              firstDay: DateTime.utc(2010, 10, 16),
-              lastDay: DateTime.utc(2030, 3, 14),
-              focusedDay: _focusedDay,
-              selectedDayPredicate: (day) {
-                return isSameDay(_selectedDay, day);
-              },
-              calendarFormat: _calendarFormat,
-              onDaySelected: (selectedDay, focusedDay) {
-                setState(() {
-                  _selectedDay = selectedDay;
-                  _focusedDay = focusedDay;
-                });
-              },
-              onFormatChanged: (format) {
-                setState(() {
-                  _calendarFormat = format;
-                });
-              },
-              daysOfWeekHeight: 30.0,
-              calendarStyle: CalendarStyle(
-                todayDecoration: BoxDecoration(
-                  color: colorScheme.primary,
-                  shape: BoxShape.circle,
-                ),
-                selectedDecoration: BoxDecoration(
-                  color: colorScheme.secondary,
-                  shape: BoxShape.circle,
-                ),
-                weekendTextStyle: TextStyle(
-                  color: colorScheme.error,
-                ),
-              ),
-            ),
-            Container(
-                child: IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {
-                Navigator.pushNamed(context, '/add_schedule');
-              },
-            ))
-          ],
-        ),
+          )
+        ],
       ),
       bottomNavigationBar: _bottomBar(context),
       floatingActionButton: _floatingActionButton(context),
