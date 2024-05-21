@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:vaccination/providers/weather_provider.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/bottom_bar.dart';
 
@@ -119,6 +121,7 @@ class _SchedulesState extends State<Schedules> {
             child: BottomBar(
               imagePath: 'assets/icons/cloud_blue.png',
               onTap: () {
+                context.read<WeatherProvider>().getWeatherCurrent();
                 Navigator.pushNamed(context, '/weather');
               },
             ),

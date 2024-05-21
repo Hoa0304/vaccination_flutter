@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vaccination/providers/weather_provider.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/buttonFun.dart';
 import 'package:vaccination/widgets/bottom_bar.dart';
 import 'package:vaccination/widgets/formCheckResult.dart';
 import 'package:vaccination/widgets/report.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
 
+  @override
+  State<Homepage> createState() => HomepageState();
+}
+
+class HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -303,6 +310,7 @@ Widget _bottomBar(BuildContext context) {
           color: colorScheme.onSurface,
           borderRadius: BorderRadius.circular(10),
         ),
+<<<<<<< Updated upstream
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -337,6 +345,16 @@ Widget _bottomBar(BuildContext context) {
               ),
             ),
           ],
+=======
+        Expanded(
+          child: BottomBar(
+            imagePath: 'assets/icons/cloud_blue.png',
+            onTap: () {
+              context.read<WeatherProvider>().getWeatherCurrent();
+              Navigator.pushNamed(context, '/weather');
+            },
+          ),
+>>>>>>> Stashed changes
         ),
       ),
       // Positioned(

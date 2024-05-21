@@ -40,6 +40,18 @@ dependencies:
   table_calendar: ^3.0.6
   flutter_form_builder: ^7.7.0
   mailer: ^6.1.0
+  intl: ^0.17.0
+  dio: ^5.4.3+1
+  provider: ^6.1.2
+  provider12: ^6.0.5+1
+  flutter_bloc: ^8.1.5
+  bloc_generic_streams: ^2.0.0
+  provider_test: ^2.0.2
+  provider_screen: ^1.0.1
+  provider_base_tools: ^0.1.6
+  provider_for_redux: ^7.0.1
+  dio2: ^5.0.0-nullsafety
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +63,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  animated_text_lerp: ^1.0.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

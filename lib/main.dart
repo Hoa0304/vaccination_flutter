@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:vaccination/providers/add_schedule.dart';
+import 'package:vaccination/providers/weather_provider.dart';
 import 'package:vaccination/screens/author/login.dart';
 import 'package:vaccination/screens/author/sign_up.dart';
 import 'package:vaccination/screens/cloud.dart';
+import 'package:vaccination/screens/cloud_nav/cloud_nav.dart';
 import 'package:vaccination/screens/homepage.dart';
 import 'package:vaccination/screens/introduction/check.dart';
 import 'package:vaccination/screens/introduction/free.dart';
@@ -25,35 +28,38 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Vaccination App',
-        initialRoute: '/',
-        routes: {
-          '/': (context) => SplashScreen(),
-          '/prevent': (context) => Prevent(),
-          '/home': (context) => Homepage(),
-          '/check': (context) => Check(),
-          '/login': (context) => Login(),
-          '/free': (context) => Free(),
-          '/test': (context) => Test(),
-          '/signup': (context) => SignUp(),
-          '/schedule': (context) => Schedules(),
-          '/profile': (context) => Profile(),
-          '/add_schedule': (context) => AddSchedule(),
-          '/weather': (context) => Cloud()
-        },
-        theme: ThemeData(
-          textTheme: const TextTheme(
-            bodyText1: TextStyle(
-              fontSize: 25,
-              fontFamily: 'Inter Pro',
+    return ChangeNotifierProvider(
+      create: (_) => WeatherProvider(),
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Vaccination App',
+          initialRoute: '/',
+          routes: {
+            '/': (context) => SplashScreen(),
+            '/prevent': (context) => Prevent(),
+            '/home': (context) => Homepage(),
+            '/check': (context) => Check(),
+            '/login': (context) => Login(),
+            '/free': (context) => Free(),
+            '/test': (context) => Test(),
+            '/signup': (context) => SignUp(),
+            '/schedule': (context) => Schedules(),
+            '/profile': (context) => Profile(),
+            '/add_schedule': (context) => AddSchedule(),
+            '/weather': (context) => NavCustom(),
+          },
+          theme: ThemeData(
+            textTheme: const TextTheme(
+              bodyText1: TextStyle(
+                fontSize: 25,
+                fontFamily: 'Inter Pro',
+              ),
+              bodyText2: TextStyle(
+                fontSize: 16,
+                fontFamily: 'Inter',
+              ),
             ),
-            bodyText2: TextStyle(
-              fontSize: 16,
-              fontFamily: 'Inter',
-            ),
-          ),
-        ));
+          )),
+    );
   }
 }
