@@ -42,11 +42,17 @@ class Prevent extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Image(
-              image: AssetImage('assets/image/prevent.png'),
-              width: 350,
-              height: 350,
-              fit: BoxFit.contain,
+            ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 350,
+                maxHeight: 350,
+                minHeight: 200,
+                minWidth: 200,
+              ),
+              child: const Image(
+                image: AssetImage('assets/image/prevent.png'),
+                fit: BoxFit.contain,
+              ),
             ),
             TextIntro(
               text1: 'Prevent ',

@@ -18,23 +18,22 @@ class ButtonFun extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
+        width: 150,
+        height: 150,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: colorScheme.background),
         padding: const EdgeInsets.all(20),
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Image.asset('assets/image/' + imagePath, width: 80, height: 80),
-              Text(
-                btntext,
-                style:
-                    const TextStyle(fontSize: 17, fontWeight: FontWeight.w900),
-              )
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Image.asset('assets/image/' + imagePath, width: 80, height: 80),
+            Text(
+              btntext,
+              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w900),
+            )
+          ],
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
+import 'package:vaccination/widgets/button_blue.dart';
 
 class formCheckResult extends StatelessWidget {
   const formCheckResult({
@@ -9,79 +10,99 @@ class formCheckResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 20, bottom: 50),
-      padding: const EdgeInsets.only(top: 30, bottom: 20, right: 20, left: 20),
+      margin: const EdgeInsets.only(right: 20, bottom: 30),
+      padding: const EdgeInsets.only(top: 20, bottom: 30, right: 20, left: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: colorScheme.onSurface,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
+        children: [
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+              children: [
                 Text(
                   "Check",
-                  style: TextStyle(
-                      color: colorScheme.onPrimary,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w900),
+                  style: Theme.of(context).textTheme.bodyText2!.merge(
+                        TextStyle(
+                            color: colorScheme.onPrimary,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
                 ),
                 Text(
                   " COVID-19",
-                  style: TextStyle(
-                      color: colorScheme.primary,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w900),
+                  style: Theme.of(context).textTheme.bodyText2!.merge(
+                        TextStyle(
+                            color: colorScheme.primary,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
                 ),
-                Text(" test result",
-                    style: TextStyle(
-                        color: colorScheme.primary,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900))
+                Text(
+                  " test result",
+                  style: Theme.of(context).textTheme.bodyText2!.merge(
+                        TextStyle(
+                            color: colorScheme.onPrimary,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+                )
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: 300,
+            height: 50,
             child: TextField(
               decoration: InputDecoration(
-                  filled: true,
-                  fillColor: colorScheme.error,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  labelText: "Please insert NIN number",
-                  labelStyle: TextStyle(
-                      color: colorScheme.outlineVariant, fontSize: 16)),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                  filled: true,
-                  fillColor: colorScheme.error,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  labelText: "Please insert COVID-19 vaccine no",
-                  labelStyle: TextStyle(color: Colors.white, fontSize: 16)),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  fixedSize: Size(250, 50),
-                  backgroundColor: Color.fromARGB(255, 0, 242, 255),
-                  foregroundColor: Colors.white),
-              onPressed: () {},
-              child: Text(
-                "Check result",
-                softWrap: false,
+                filled: true,
+                fillColor: colorScheme.error,
+                border: UnderlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                labelText: "Please insert NIN number",
+                labelStyle: Theme.of(context).textTheme.bodyText2!.merge(
+                      TextStyle(color: Color(0xFF89A0B8), fontSize: 16),
+                    ),
               ),
             ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          SizedBox(
+            width: 300,
+            height: 50,
+            child: TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: colorScheme.error,
+                border: UnderlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                labelText: "Please insert COVID-19 vaccine no",
+                labelStyle: Theme.of(context).textTheme.bodyText2!.merge(
+                      TextStyle(color: Color(0xFF89A0B8), fontSize: 16),
+                    ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ButtonBlue(
+            horizontal: 250,
+            vertical: 50,
+            text: 'Check Result',
+            buttonFunction: () {},
+            colorbg: colorScheme.primary,
+            textColor: colorScheme.onPrimary,
           )
         ],
       ),

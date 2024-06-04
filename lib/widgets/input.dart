@@ -51,7 +51,7 @@ class Input extends StatelessWidget {
               borderSide: BorderSide(color: colorScheme.primary, width: 2.0),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: colorScheme.primary, width: 2.0),
+              borderSide: BorderSide(color: colorScheme.primary, width: 3.0),
             ),
             fillColor: Colors.white,
             filled: true,

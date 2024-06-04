@@ -32,7 +32,8 @@ class ButtonBlue extends StatelessWidget {
       child: Text(
         text,
         style: Theme.of(context).textTheme.bodyText1!.merge(
-              const TextStyle(fontSize: 20, color: Colors.white),
+              TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold, color: textColor),
             ),
       ),
     );

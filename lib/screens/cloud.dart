@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vaccination/model/weather.dart';
 import 'package:vaccination/providers/weather_provider.dart';
+import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/cloud_detail_weather.dart';
 import 'package:vaccination/widgets/cloud_location.dart';
 import 'package:vaccination/widgets/cloud_temperature.dart';
@@ -27,25 +28,16 @@ class _CloudState extends State<Cloud> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Padding(
-          padding: EdgeInsets.only(left: 0.0),
-          child: Text(
-            "Weather-related illnesses",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
+      body: Stack(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  colors: [Color(0xff003285), Color.fromARGB(197, 0, 58, 115)]),
             ),
-          ),
-        ),
-      ),
-      body: Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                colors: [Color(0xff003285), Color.fromARGB(197, 0, 58, 115)]),
-          ),
-          child: FutureBuilder(
+            child: FutureBuilder(
               future: context.read<WeatherProvider>().getWeatherCurrent(),
               initialData: null,
               builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -83,7 +75,24 @@ class _CloudState extends State<Cloud> {
                     ),
                   ],
                 );
-              })),
+              },
+            ),
+          ),
+          Positioned(
+            top: 40,
+            left: 20,
+            child: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: colorScheme.onPrimary,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }

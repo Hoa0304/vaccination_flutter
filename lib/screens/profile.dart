@@ -73,13 +73,13 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
-            const SizedBox(height: 25.0),
+            const SizedBox(height: 20.0),
             textButton(
               function: () => onSchedule(context),
               text: 'Vaccine Scehdule Record',
               icon: 'assets/icons/clipboard_blue.png',
             ),
-            const SizedBox(height: 25.0),
+            const SizedBox(height: 20.0),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -93,25 +93,25 @@ class _ProfileState extends State<Profile> {
                     ),
               ),
             ),
-            const SizedBox(height: 25.0),
+            const SizedBox(height: 20.0),
             textButton(
               function: () => onSchedule(context),
               text: 'Change Password',
               icon: 'assets/icons/change.png',
             ),
-            const SizedBox(height: 25.0),
+            const SizedBox(height: 20.0),
             textButton(
               function: () => onSchedule(context),
               text: 'Set Default Address',
               icon: 'assets/icons/map.png',
             ),
-            const SizedBox(height: 25.0),
+            const SizedBox(height: 20.0),
             textButton(
               function: () => onSchedule(context),
               text: 'Group',
               icon: 'assets/icons/message.png',
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 15.0),
             TextButton(
               onPressed: () {
                 onLogin(context);
@@ -139,6 +139,7 @@ class _ProfileState extends State<Profile> {
       bottomNavigationBar: _bottomBar(context),
       floatingActionButton: _floatingActionButton(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      resizeToAvoidBottomInset: false,
     );
   }
 }

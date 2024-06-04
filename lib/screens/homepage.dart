@@ -67,7 +67,7 @@ class HomepageState extends State<Homepage> {
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.notifications),
+                    icon: const Icon(Icons.notifications_none),
                   )
                 ],
               ),
@@ -75,52 +75,59 @@ class HomepageState extends State<Homepage> {
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     const Report(),
                     const formCheckResult(),
                     Container(
                       margin: const EdgeInsets.only(top: 20),
-                      child: const Align(
+                      child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "What do you need?",
-                          style: TextStyle(fontWeight: FontWeight.w900),
+                          style: Theme.of(context).textTheme.bodyText1!.merge(
+                                const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
                         ),
                       ),
                     ),
+                    const SizedBox(height: 30),
                     Container(
-                      padding: const EdgeInsets.only(right: 20),
+                      padding: const EdgeInsets.only(right: 35, left: 15),
                       height: 350, //
-                      child: CustomScrollView(
-                        slivers: <Widget>[
-                          SliverPadding(
-                            padding: const EdgeInsets.all(15),
-                            sliver: SliverGrid.count(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 10,
-                              children: <Widget>[
-                                ButtonFun(
-                                    onPressed: () {},
-                                    imagePath: "vaccine.png",
-                                    btntext: "Vaccine"),
-                                ButtonFun(
-                                    onPressed: () {},
-                                    imagePath: "track 1.png",
-                                    btntext: "Lab Test"),
-                                ButtonFun(
-                                    onPressed: () {},
-                                    imagePath: "Image0000.png",
-                                    btntext: "Consultation"),
-                                ButtonFun(
-                                    onPressed: () {},
-                                    imagePath: "track 2.png",
-                                    btntext: "Quarantine")
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                      child: Column(children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ButtonFun(
+                                onPressed: () {},
+                                imagePath: "vaccine.png",
+                                btntext: "Vaccine"),
+                            ButtonFun(
+                                onPressed: () {},
+                                imagePath: "track 1.png",
+                                btntext: "Lab Test"),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ButtonFun(
+                                onPressed: () {},
+                                imagePath: "Image0000.png",
+                                btntext: "Consultation"),
+                            ButtonFun(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/hospital');
+                                },
+                                imagePath: "track 2.png",
+                                btntext: "Hospitals")
+                          ],
+                        )
+                      ]),
                     ),
                     Container(
                       margin: const EdgeInsets.only(top: 30),

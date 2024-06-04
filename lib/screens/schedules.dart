@@ -21,22 +21,13 @@ class _SchedulesState extends State<Schedules> {
       body: Stack(
         children: [
           Container(
-            margin: const EdgeInsets.only(left: 10, top: 10),
+            margin: const EdgeInsets.all(18),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Lịch',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: colorScheme.onPrimary,
-                  ),
-                ),
-                const SizedBox(height: 20),
                 TableCalendar(
-                  firstDay: DateTime.utc(2010, 10, 16),
-                  lastDay: DateTime.utc(2030, 3, 14),
+                  firstDay: DateTime.utc(2015, 10, 16),
+                  lastDay: DateTime.utc(2035, 12, 30),
                   focusedDay: _focusedDay,
                   selectedDayPredicate: (day) {
                     return isSameDay(_selectedDay, day);
@@ -72,23 +63,27 @@ class _SchedulesState extends State<Schedules> {
             ),
           ),
           Positioned(
-            top: 650,
-            left: 330,
-            child: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: colorScheme.primary,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: IconButton(
-                icon: Icon(
+            top: MediaQuery.of(context).size.height * 0.83,
+            left: MediaQuery.of(context).size.width * 0.82,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/add_schedule');
+              },
+              child: Container(
+                constraints: const BoxConstraints(
+                  maxHeight: 50,
+                  maxWidth: 50,
+                  minWidth: 45,
+                  minHeight: 45,
+                ),
+                decoration: BoxDecoration(
+                  color: colorScheme.primary,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Icon(
                   Icons.add,
                   color: colorScheme.onPrimary,
                 ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/add_schedule');
-                },
               ),
             ),
           )
@@ -97,6 +92,7 @@ class _SchedulesState extends State<Schedules> {
       bottomNavigationBar: _bottomBar(context),
       floatingActionButton: _floatingActionButton(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      resizeToAvoidBottomInset: false,
     );
   }
 
@@ -165,8 +161,8 @@ class _SchedulesState extends State<Schedules> {
         child: Transform.rotate(
           angle: 3 * 3.14159 / 4, // Xoay 135 độ
           child: Container(
-            width: 35,
-            height: 35,
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
               color: colorScheme.primary,
               borderRadius: BorderRadius.circular(5),

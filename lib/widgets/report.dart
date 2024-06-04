@@ -66,7 +66,7 @@ class Report extends StatelessWidget {
               ),
               Container(
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Container(
