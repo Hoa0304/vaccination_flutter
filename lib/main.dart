@@ -6,6 +6,8 @@ import 'package:vaccination/screens/author/login.dart';
 import 'package:vaccination/screens/author/sign_up.dart';
 import 'package:vaccination/screens/cloud.dart';
 import 'package:vaccination/screens/cloud_nav/cloud_nav.dart';
+import 'package:vaccination/screens/features/chatUI.dart';
+import 'package:vaccination/screens/features/groupchat.dart';
 import 'package:vaccination/screens/features/hospital.dart';
 import 'package:vaccination/screens/features/info_hospital.dart';
 import 'package:vaccination/screens/homepage.dart';
@@ -51,6 +53,7 @@ class MyApp extends StatelessWidget {
             '/weather': (context) => NavCustom(),
             '/hospital': (context) => Hospital(),
             '/info': (context) => InfoHospital(),
+            '/groupchat': (context) => GroupChat(),
           },
           theme: ThemeData(
             textTheme: const TextTheme(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vaccination/theme/theme.dart';
+import 'package:vaccination/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:vaccination/widgets/bottom_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
 import 'package:vaccination/widgets/text_button.dart';
@@ -107,13 +108,14 @@ class _ProfileState extends State<Profile> {
             ),
             const SizedBox(height: 20.0),
             textButton(
-              function: () => onSchedule(context),
+              function: () => onGroupChat(context),
               text: 'Group',
               icon: 'assets/icons/message.png',
             ),
             const SizedBox(height: 15.0),
             TextButton(
               onPressed: () {
+                logOut(context);
                 onLogin(context);
               },
               style: TextButton.styleFrom(
@@ -184,6 +186,10 @@ class profile extends StatelessWidget {
 
 void onSchedule(BuildContext context) {
   Navigator.pushNamed(context, '/schedule');
+}
+
+void onGroupChat(BuildContext context) {
+  Navigator.pushNamed(context, "/groupchat");
 }
 
 Widget _bottomBar(BuildContext context) {

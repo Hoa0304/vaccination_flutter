@@ -235,7 +235,8 @@ class _SignUpState extends State<SignUp> {
       showSnackBar("Not match");
       return;
     } else {
-      User? user = await _auth.signUpWithEmailAndPassword(username, password);
+      User? user =
+          await _auth.signUpWithEmailAndPassword(name, username, password);
 
       if (user != null) {
         print("Created user ");

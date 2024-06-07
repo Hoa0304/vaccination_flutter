@@ -52,6 +52,8 @@ dependencies:
   provider_for_redux: ^7.0.1
   dio2: ^5.0.0-nullsafety
   animated_text_kit: ^4.2.2
+  uuid: ^4.4.0
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
