@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vaccination/screens/features/group_chats/create_group/create_group.dart';
+import 'package:vaccination/theme/theme.dart';
 
 class AddMembersInGroup extends StatefulWidget {
   const AddMembersInGroup({Key? key}) : super(key: key);
@@ -129,12 +130,30 @@ class _AddMembersInGroupState extends State<AddMembersInGroup> {
                 height: size.height / 14,
                 width: size.width / 1.15,
                 child: TextField(
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
                   controller: _search,
                   decoration: InputDecoration(
                     hintText: "Search",
+                    hintStyle: Theme.of(context).textTheme.bodyText2!.merge(
+                          TextStyle(
+                            fontSize: 18,
+                            color: colorScheme.onSecondary,
+                          ),
+                        ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          BorderSide(color: colorScheme.primary, width: 1.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide:
+                          BorderSide(color: colorScheme.primary, width: 2.0),
                     ),
                   ),
                 ),
@@ -152,7 +171,15 @@ class _AddMembersInGroupState extends State<AddMembersInGroup> {
                   )
                 : ElevatedButton(
                     onPressed: onSearch,
-                    child: Text("Search"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: colorScheme.primary,
+                      foregroundColor: colorScheme.onPrimary,
+                    ),
+                    child: Text(
+                      "Search",
+                      style:
+                          TextStyle(color: colorScheme.onPrimary, fontSize: 18),
+                    ),
                   ),
             userMap != null
                 ? ListTile(

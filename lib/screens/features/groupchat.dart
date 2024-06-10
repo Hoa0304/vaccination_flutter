@@ -92,7 +92,7 @@ class _GroupChatState extends State<GroupChat> with WidgetsBindingObserver {
                   height: size.height / 20,
                 ),
                 Container(
-                  height: size.height / 14,
+                  height: size.height / 15,
                   width: size.width,
                   alignment: Alignment.center,
                   child: Container(
@@ -102,10 +102,25 @@ class _GroupChatState extends State<GroupChat> with WidgetsBindingObserver {
                       style: TextStyle(fontSize: 16),
                       controller: _search,
                       decoration: InputDecoration(
-                        hintStyle: TextStyle(fontSize: 18),
                         hintText: "Search",
+                        hintStyle: Theme.of(context).textTheme.bodyText2!.merge(
+                              TextStyle(
+                                fontSize: 18,
+                                color: colorScheme.onSecondary,
+                              ),
+                            ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: colorScheme.primary, width: 1.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: colorScheme.primary, width: 2.0),
                         ),
                       ),
                     ),
@@ -116,7 +131,15 @@ class _GroupChatState extends State<GroupChat> with WidgetsBindingObserver {
                 ),
                 ElevatedButton(
                   onPressed: onSearch,
-                  child: Text("Search"),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: colorScheme.primary,
+                    foregroundColor: colorScheme.onPrimary,
+                  ),
+                  child: Text(
+                    "Search",
+                    style:
+                        TextStyle(color: colorScheme.onPrimary, fontSize: 18),
+                  ),
                 ),
                 SizedBox(
                   height: size.height / 30,

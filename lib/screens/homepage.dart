@@ -66,7 +66,9 @@ class HomepageState extends State<Homepage> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/print');
+                    },
                     icon: const Icon(Icons.notifications_none),
                   )
                 ],
@@ -102,7 +104,9 @@ class HomepageState extends State<Homepage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             ButtonFun(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/vaccine');
+                                },
                                 imagePath: "vaccine.png",
                                 btntext: "Vaccine"),
                             ButtonFun(

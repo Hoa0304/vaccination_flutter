@@ -113,7 +113,7 @@ class _LoginState extends State<Login> {
                   text: 'Password',
                   controller: passwordController,
                   hintText: 'Enter your password',
-                  obscureText: false,
+                  obscureText: true,
                   suffixIcon: Image.asset('assets/icons/lock.png'),
                   maxwidth: 350,
                   maxHeight: 50,

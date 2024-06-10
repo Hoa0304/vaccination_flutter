@@ -13,6 +13,62 @@ class InfoHospital extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Center(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: colorScheme.primary,
+                    width: 0.5,
+                  ),
+                ),
+                padding: const EdgeInsets.only(left: 5),
+                width: 30,
+                height: 30,
+                child: IconButton(
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 18,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/hospital');
+                  },
+                ),
+              ),
+              const Text(
+                "Hospital",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: colorScheme.primary,
+                    width: 0.5,
+                  ),
+                ),
+                width: 30,
+                height: 30,
+                child: IconButton(
+                  padding: EdgeInsets.zero,
+                  icon: const Icon(
+                    Icons.notifications_none,
+                    size: 20,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          )),
+        ),
         body: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
@@ -134,7 +190,7 @@ class BottomSheetDummyUI extends StatelessWidget {
                 'Facilisis elementum nullam pellentesque non. Ullamcorper scelerisque tempus viverra condimentum. Rhoncus, justo, cursus id eget habitant vel.',
                 style: Theme.of(context).textTheme.bodyText1!.merge(
                       const TextStyle(
-                        fontSize: 13,
+                        fontSize: 15,
                       ),
                     )),
             const SizedBox(height: 10),
@@ -281,8 +337,8 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
     return LayoutBuilder(builder: (context, constraints) {
       return DraggableScrollableSheet(
         key: sheet,
-        initialChildSize: 0.5,
-        maxChildSize: 0.95,
+        initialChildSize: 0.1,
+        maxChildSize: 0.65,
         minChildSize: 0,
         expand: true,
         snap: true,

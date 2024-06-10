@@ -142,7 +142,6 @@ class _SignUpState extends State<SignUp> {
                               value: 'option2',
                               child: Text('Tùy chọn 2'),
                             ),
-                            // Thêm các tùy chọn khác ở đây
                           ],
                         ),
                         const SizedBox(
@@ -154,7 +153,7 @@ class _SignUpState extends State<SignUp> {
                             obscureText: false,
                             style:
                                 Theme.of(context).textTheme.bodyText2!.copyWith(
-                                      fontSize: 14, // Kích thước chữ mặc định
+                                      fontSize: 14,
                                     ),
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
@@ -194,7 +193,7 @@ class _SignUpState extends State<SignUp> {
                   text: 'Password',
                   controller: passwordController,
                   hintText: 'Enter your password',
-                  obscureText: false,
+                  obscureText: true,
                   suffixIcon: Image.asset('assets/icons/lock.png'),
                   maxwidth: 350,
                   maxHeight: 50,
@@ -203,7 +202,7 @@ class _SignUpState extends State<SignUp> {
                   text: 'Confirm Password',
                   controller: confirmController,
                   hintText: 'Re-enter your password',
-                  obscureText: false,
+                  obscureText: true,
                   suffixIcon: Image.asset('assets/icons/lock.png'),
                   maxwidth: 350,
                   maxHeight: 50,

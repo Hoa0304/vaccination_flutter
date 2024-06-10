@@ -10,6 +10,7 @@ import 'package:vaccination/screens/features/chatUI.dart';
 import 'package:vaccination/screens/features/groupchat.dart';
 import 'package:vaccination/screens/features/hospital.dart';
 import 'package:vaccination/screens/features/info_hospital.dart';
+import 'package:vaccination/screens/features/vaccines.dart';
 import 'package:vaccination/screens/homepage.dart';
 import 'package:vaccination/screens/introduction/check.dart';
 import 'package:vaccination/screens/introduction/free.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
             '/hospital': (context) => Hospital(),
             '/info': (context) => InfoHospital(),
             '/groupchat': (context) => GroupChat(),
+            '/vaccine': (context) => Vaccines(),
           },
           theme: ThemeData(
             textTheme: const TextTheme(
