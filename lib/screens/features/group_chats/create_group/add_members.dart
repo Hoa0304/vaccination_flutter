@@ -151,7 +151,7 @@ class _AddMembersInGroupState extends State<AddMembersInGroup> {
                           BorderSide(color: colorScheme.primary, width: 1.0),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(12),
                       borderSide:
                           BorderSide(color: colorScheme.primary, width: 2.0),
                     ),
