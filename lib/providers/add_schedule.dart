@@ -23,6 +23,7 @@ class _AddScheduleState extends State<AddSchedule> {
   bool pfizer = false;
   bool astraZeneca = false;
   bool sinovac = false;
+  String selectedOption = 'Trung tâm y tế quận Ngũ Hành Sơn';
 
   void _openDatePicker(BuildContext context) {
     BottomPicker.date(
@@ -257,6 +258,28 @@ class _AddScheduleState extends State<AddSchedule> {
               backgroundColor: colorScheme.onPrimary,
               fixedSize: const Size(285.0, 50.0),
             ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          DropdownButton<String>(
+            value: selectedOption,
+            onChanged: (String? newValue) {
+              setState(() {
+                selectedOption = newValue!;
+              });
+            },
+            items: <String>[
+              'Trung tâm y tế quận Ngũ Hành Sơn',
+              'Trung tâm Y tế quận Liên Chiểu',
+              'Trung tâm Y tế quận Thanh Khê',
+              // Thêm các tùy chọn khác ở đây
+            ].map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
           ),
           const SizedBox(
             height: 20,

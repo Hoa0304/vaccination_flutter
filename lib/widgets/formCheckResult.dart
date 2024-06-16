@@ -24,7 +24,7 @@ class formCheckResult extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Check",
+                  "Kết quả",
                   style: Theme.of(context).textTheme.bodyText2!.merge(
                         TextStyle(
                             color: colorScheme.onPrimary,
@@ -42,7 +42,7 @@ class formCheckResult extends StatelessWidget {
                       ),
                 ),
                 Text(
-                  " test result",
+                  " xét nghiệm",
                   style: Theme.of(context).textTheme.bodyText2!.merge(
                         TextStyle(
                             color: colorScheme.onPrimary,
@@ -66,7 +66,7 @@ class formCheckResult extends StatelessWidget {
                 border: UnderlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                labelText: "Please insert NIN number",
+                labelText: "Vui lòng nhập số Số Định danh Cá nhân (NIN)",
                 labelStyle: Theme.of(context).textTheme.bodyText2!.merge(
                       TextStyle(color: Color(0xFF89A0B8), fontSize: 16),
                     ),
@@ -86,7 +86,7 @@ class formCheckResult extends StatelessWidget {
                 border: UnderlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                labelText: "Please insert COVID-19 vaccine no",
+                labelText: "Vui lòng nhập số liều vaccine COVID-19",
                 labelStyle: Theme.of(context).textTheme.bodyText2!.merge(
                       TextStyle(color: Color(0xFF89A0B8), fontSize: 16),
                     ),
@@ -96,14 +96,22 @@ class formCheckResult extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          ButtonBlue(
-            horizontal: 250,
-            vertical: 50,
-            text: 'Check Result',
-            buttonFunction: () {},
-            colorbg: colorScheme.primary,
-            textColor: colorScheme.onPrimary,
-          )
+          TextButton(
+            style: TextButton.styleFrom(
+              fixedSize: Size(200, 50),
+              backgroundColor: colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            onPressed: () {},
+            child: Text(
+              'Kiểm tra kết quả',
+              style: Theme.of(context).textTheme.bodyText1!.merge(
+                    const TextStyle(fontSize: 17, color: Colors.white),
+                  ),
+            ),
+          ),
         ],
       ),
     );
