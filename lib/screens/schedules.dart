@@ -1,9 +1,13 @@
+import 'dart:convert';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:vaccination/providers/weather_provider.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/bottom_bar.dart';
+import 'package:http/http.dart' as http;
 
 class Schedules extends StatefulWidget {
   @override
@@ -11,9 +15,40 @@ class Schedules extends StatefulWidget {
 }
 
 class _SchedulesState extends State<Schedules> {
+  List<dynamic> scheduleData = [];
+  String currentEmail = "";
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
+  Future<void> fetchCurrentUserEmail() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      setState(() {
+        currentEmail = user.email ?? '';
+      });
+    }
+  }
+
+  Future<void> fetchScheduleData() async {
+    final response =
+        await http.post(Uri.parse('http://192.168.1.7/getSchedule.php'), body: {
+      'Email': currentEmail,
+    });
+    if (response.statusCode == 200) {
+      setState(() {
+        scheduleData = json.decode(response.body);
+      });
+    } else {
+      print('Error: FailtogetSchedule');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchCurrentUserEmail();
+    fetchScheduleData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +96,22 @@ class _SchedulesState extends State<Schedules> {
                 ),
                 Expanded(
                   child: ListView.builder(
+                    itemCount: scheduleData.length,
                     itemBuilder: (context, index) {
+                      final schedule = scheduleData[index];
+                      String vc = "";
+                      if (schedule['VID'] == '1') {
+                        vc = "moderna";
+                      }
+                      if (schedule['VID'] == '2') {
+                        vc = "pfize";
+                      }
+                      if (schedule['VID'] == '3') {
+                        vc = "astraZenaca";
+                      }
+                      if (schedule['VID'] == '4') {
+                        vc = "sinovac";
+                      }
                       return Container(
                         constraints: BoxConstraints(
                             maxHeight: 150,
@@ -93,7 +143,7 @@ class _SchedulesState extends State<Schedules> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Giltol General Hospital',
+                                    '${schedule['Hospital']}',
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText1!
@@ -105,7 +155,7 @@ class _SchedulesState extends State<Schedules> {
                                         ),
                                   ),
                                   Text(
-                                    'Badagry, Lagos',
+                                    vc,
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText2!
@@ -153,12 +203,6 @@ class _SchedulesState extends State<Schedules> {
                                       ),
                                     ],
                                   ),
-                                  const SizedBox(
-                                    height: 1,
-                                  ),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(Icons.delete_outline))
                                 ],
                               ),
                             ),

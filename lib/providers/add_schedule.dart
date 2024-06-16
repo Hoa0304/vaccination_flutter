@@ -7,6 +7,7 @@ import 'package:vaccination/widgets/button_blue.dart';
 import 'package:vaccination/widgets/input.dart';
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:bottom_picker/resources/arrays.dart';
+import 'package:http/http.dart' as http;
 
 class AddSchedule extends StatefulWidget {
   @override
@@ -17,6 +18,8 @@ class _AddScheduleState extends State<AddSchedule> {
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
   final messageController = TextEditingController();
+  final emailController = TextEditingController();
+  final addressController = TextEditingController();
   bool female = false;
   bool male = false;
   bool modena = false;
@@ -24,6 +27,30 @@ class _AddScheduleState extends State<AddSchedule> {
   bool astraZeneca = false;
   bool sinovac = false;
   String selectedOption = 'Trung tâm y tế quận Ngũ Hành Sơn';
+
+  addSchedule() {
+    var vid = 0;
+    if (modena) {
+      vid = 1;
+    }
+    if (pfizer) {
+      vid = 2;
+    }
+    if (astraZeneca) {
+      vid = 3;
+    }
+    if (sinovac) {
+      vid = 4;
+    }
+    var url = 'http://192.168.1.7/addSchedule.php';
+    http.post(Uri.parse(url), body: {
+      'vid': vid.toString(),
+      'name': nameController.text,
+      'email': emailController.text,
+      'hospital': selectedOption,
+      'address': addressController.text
+    });
+  }
 
   void _openDatePicker(BuildContext context) {
     BottomPicker.date(
@@ -96,7 +123,7 @@ class _AddScheduleState extends State<AddSchedule> {
           ),
           Input(
             text: 'Email',
-            controller: nameController,
+            controller: emailController,
             hintText: 'Your email',
             obscureText: false,
             maxwidth: 300,
@@ -108,7 +135,7 @@ class _AddScheduleState extends State<AddSchedule> {
           ),
           Input(
             text: 'Address',
-            controller: nameController,
+            controller: addressController,
             hintText: 'Your address',
             obscureText: false,
             maxwidth: 300,
@@ -604,7 +631,9 @@ class _AddScheduleState extends State<AddSchedule> {
                 horizontal: 130,
                 vertical: 50,
                 text: 'Register',
-                buttonFunction: () {},
+                buttonFunction: () {
+                  addSchedule();
+                },
                 colorbg: colorScheme.primary,
                 textColor: colorScheme.onPrimary,
               )
