@@ -10,6 +10,7 @@ import 'package:vaccination/widgets/app_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
 import 'package:vaccination/widgets/input.dart';
 import 'package:vaccination/widgets/text_intro.dart';
+import 'package:http/http.dart' as http;
 
 class SignUp extends StatefulWidget {
   @override
@@ -23,6 +24,7 @@ class _SignUpState extends State<SignUp> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   void onPressed(BuildContext context) {
     Navigator.pushNamed(context, '/signup');
@@ -36,6 +38,18 @@ class _SignUpState extends State<SignUp> {
     passwordController.dispose();
     confirmController.dispose();
     super.dispose();
+  }
+
+  addUser() {
+    var url = 'http://192.168.1.7/addUser.php';
+    http.post(Uri.parse(url), body: {
+      'name': nameController.text,
+      'email': usernameController.text,
+      'phone': phoneController.text,
+      'password': passwordController.text,
+      'address': addressController.text,
+    });
+    print(nameController.text);
   }
 
   @override
@@ -190,6 +204,15 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
                 Input(
+                  text: 'Address',
+                  controller: addressController,
+                  hintText: 'Enter your Address',
+                  obscureText: true,
+                  suffixIcon: Icon(Icons.location_disabled),
+                  maxwidth: 350,
+                  maxHeight: 50,
+                ),
+                Input(
                   text: 'Password',
                   controller: passwordController,
                   hintText: 'Enter your password',
@@ -239,6 +262,9 @@ class _SignUpState extends State<SignUp> {
 
       if (user != null) {
         print("Created user ");
+        setState(() {
+          addUser();
+        });
         sendEmail(username);
         Navigator.pushNamed(context, "/home");
       } else {

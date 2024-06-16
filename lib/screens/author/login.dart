@@ -1,11 +1,14 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:vaccination/model/Users.dart';
 import 'package:vaccination/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:vaccination/widgets/app_bar.dart';
 import 'package:vaccination/widgets/button_blue.dart';
 import 'package:vaccination/widgets/button_grey.dart';
 import 'package:vaccination/widgets/input.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:vaccination/theme/theme.dart';
 
 class Login extends StatefulWidget {
@@ -198,7 +201,6 @@ class _LoginState extends State<Login> {
     String username = usernameController.text;
     String password = passwordController.text;
     User? user = await _auth.signInWithEmailAndPassword(username, password);
-
     if (user != null) {
       print("Created user ");
       Navigator.pushNamed(context, "/home");
