@@ -47,14 +47,14 @@ class HomepageState extends State<Homepage> {
                     child: Column(
                       children: [
                         Text(
-                          "Current Location",
+                          "Nơi sống hiện tại",
                           style: Theme.of(context).textTheme.bodyText2!.merge(
                                 const TextStyle(
                                     color: Color(0xFF808080), fontSize: 15),
                               ),
                         ),
                         Text(
-                          "Hoa Xuan, Cam Le",
+                          "Hòa Xuân, Cẩm Lệ",
                           style: Theme.of(context).textTheme.bodyText2!.merge(
                                 TextStyle(
                                     color: colorScheme.shadow,
@@ -85,7 +85,7 @@ class HomepageState extends State<Homepage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "What do you need?",
+                          "Bạn cần gì?",
                           style: Theme.of(context).textTheme.bodyText1!.merge(
                                 const TextStyle(
                                   fontSize: 18,
@@ -122,13 +122,13 @@ class HomepageState extends State<Homepage> {
                             ButtonFun(
                                 onPressed: () {},
                                 imagePath: "Image0000.png",
-                                btntext: "Consultation"),
+                                btntext: "Tư vấn"),
                             ButtonFun(
                                 onPressed: () {
                                   Navigator.pushNamed(context, '/hospital');
                                 },
                                 imagePath: "track 2.png",
-                                btntext: "Hospitals")
+                                btntext: "Bệnh viện")
                           ],
                         )
                       ]),
@@ -138,19 +138,19 @@ class HomepageState extends State<Homepage> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Row(
-                          children: <Widget>[
+                          children: [
+                            const Text(
+                              "Triệu chứng",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w900, fontSize: 21),
+                            ),
                             Text(
-                              "COVID-19",
+                              " COVID-19",
                               style: TextStyle(
                                   color: colorScheme.primary,
                                   fontWeight: FontWeight.w900,
                                   fontSize: 20),
                             ),
-                            const Text(
-                              " Symptoms",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w900, fontSize: 21),
-                            )
                           ],
                         ),
                       ),
@@ -167,15 +167,15 @@ class HomepageState extends State<Homepage> {
                               _buildButton(
                                 context: context,
                                 imageAsset: 'assets/icons/headache.png',
-                                title: 'Constant',
-                                subtitle: 'Headache',
+                                title: 'Đau đầu',
+                                subtitle: 'Liên tục',
                               ),
                               const SizedBox(width: 20),
                               _buildButton(
                                 context: context,
                                 imageAsset: 'assets/icons/throat.png',
-                                title: 'Sore',
-                                subtitle: 'Throat',
+                                title: 'Đau',
+                                subtitle: 'Họng',
                               ),
                             ],
                           ),
@@ -188,15 +188,15 @@ class HomepageState extends State<Homepage> {
                               _buildButton(
                                 context: context,
                                 imageAsset: 'assets/icons/temperature.png',
-                                title: 'Elevated',
-                                subtitle: 'Temperature',
+                                title: 'Nhiệt độ',
+                                subtitle: 'Tăng cao',
                               ),
                               const SizedBox(width: 20),
                               _buildButton(
                                 context: context,
                                 imageAsset: 'assets/icons/coughing.png',
-                                title: 'Severe',
-                                subtitle: 'Coughing',
+                                title: 'Ho',
+                                subtitle: 'Nặng',
                               ),
                             ],
                           ),
@@ -209,15 +209,15 @@ class HomepageState extends State<Homepage> {
                               _buildButton(
                                 context: context,
                                 imageAsset: 'assets/icons/breathing.png',
-                                title: 'Difficulty',
-                                subtitle: 'Breathing',
+                                title: 'Khó',
+                                subtitle: 'Thở',
                               ),
                               const SizedBox(width: 20),
                               _buildButton(
                                 context: context,
                                 imageAsset: 'assets/icons/sense.png',
-                                title: 'Loss of',
-                                subtitle: 'Sense of Smell',
+                                title: 'Mất',
+                                subtitle: 'Khứu giác',
                               ),
                             ],
                           ),
@@ -271,7 +271,7 @@ Widget _buildButton({
           height: 40,
           fit: BoxFit.contain,
         ),
-        const SizedBox(width: 5),
+        const SizedBox(width: 10),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -279,16 +279,15 @@ Widget _buildButton({
               Text(title,
                   style: Theme.of(context).textTheme.bodyText1!.merge(
                         TextStyle(
-                          fontSize: 13,
+                          fontSize: 14,
                           color: colorScheme.shadow,
                         ),
                       )),
-              const SizedBox(height: 2),
               Text(
                 subtitle,
                 style: Theme.of(context).textTheme.bodyText1!.merge(
                       TextStyle(
-                        fontSize: 13,
+                        fontSize: 14,
                         color: colorScheme.shadow,
                       ),
                     ),

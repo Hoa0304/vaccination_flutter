@@ -115,15 +115,18 @@ class BottomSheetDummyUI extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            Text(
-              'Badagry General Hospital,      Lagos',
-              style: Theme.of(context).textTheme.bodyText2!.merge(
-                    TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: colorScheme.shadow,
+            Padding(
+              padding: const EdgeInsets.all(0),
+              child: Text(
+                'Trung tâm Y tế quận Liên Chiểu',
+                style: Theme.of(context).textTheme.bodyText2!.merge(
+                      TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: colorScheme.shadow,
+                      ),
                     ),
-                  ),
+              ),
             ),
             const SizedBox(height: 10),
             Row(
@@ -134,14 +137,26 @@ class BottomSheetDummyUI extends StatelessWidget {
                   color: colorScheme.primary,
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  'KM 48, Badagry Exp-way, Lagos',
-                  style: Theme.of(context).textTheme.bodyText1!.merge(
-                        TextStyle(
-                          fontSize: 18,
-                          color: Color(0xFF777777),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          text:
+                              '02 Nguyễn Tri Phương, quận Liên Chiểu, Đà Nẵng',
+                          style: Theme.of(context).textTheme.bodyText2!.merge(
+                                TextStyle(
+                                  fontSize: 18,
+                                  color: Color(0xFF777777),
+                                ),
+                              ),
                         ),
-                      ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
@@ -187,7 +202,7 @@ class BottomSheetDummyUI extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-                'Facilisis elementum nullam pellentesque non. Ullamcorper scelerisque tempus viverra condimentum. Rhoncus, justo, cursus id eget habitant vel.',
+                'Các trung tâm y tế và bệnh viện được chỉ định là địa điểm tiêm chủng vaccine tại Đà Nẵng. Các cơ sở này đều có đội ngũ y bác sĩ chuyên nghiệp, cơ sở vật chất hiện đại, đảm bảo môi trường an toàn và vệ sinh. Quy trình đăng ký và tiêm chủng được thực hiện một cách trôi chảy, đáp ứng tốt nhu cầu của người dân. Mỗi địa điểm đều có các phòng chờ, khu vực tiêm chủng riêng biệt, giúp người dân được theo dõi sức khỏe một cách chu đáo sau khi tiêm. Địa điểm tiêm cũng được trang bị đầy đủ trang thiết bị y tế và các dịch vụ hỗ trợ khác để ứng phó kịp thời với mọi tình huống. Nhìn chung, các trung tâm y tế và bệnh viện này đã sẵn sàng để cung cấp dịch vụ tiêm chủng an toàn và hiệu quả cho người dân tại Đà Nẵng.',
                 style: Theme.of(context).textTheme.bodyText1!.merge(
                       const TextStyle(
                         fontSize: 15,
@@ -337,8 +352,8 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
     return LayoutBuilder(builder: (context, constraints) {
       return DraggableScrollableSheet(
         key: sheet,
-        initialChildSize: 0.1,
-        maxChildSize: 0.65,
+        initialChildSize: 0.36,
+        maxChildSize: 0.99,
         minChildSize: 0,
         expand: true,
         snap: true,

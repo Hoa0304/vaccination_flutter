@@ -59,6 +59,115 @@ class _SchedulesState extends State<Schedules> {
                     ),
                   ),
                 ),
+                Expanded(
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return Container(
+                        constraints: BoxConstraints(
+                            maxHeight: 150,
+                            minHeight: 100,
+                            maxWidth: 350,
+                            minWidth: 300),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: colorScheme.background,
+                        ),
+                        margin: EdgeInsets.only(top: 10, bottom: 20),
+                        padding: EdgeInsets.only(left: 20, top: 15, bottom: 15),
+                        child: Row(
+                          children: [
+                            // Hình ảnh
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/image/giltol.png',
+                                width: 100,
+                                height: 130,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            SizedBox(width: 16.0),
+                            // Chữ và nút
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Giltol General Hospital',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .merge(
+                                          TextStyle(
+                                            fontSize: 16.0,
+                                            color: colorScheme.shadow,
+                                          ),
+                                        ),
+                                  ),
+                                  Text(
+                                    'Badagry, Lagos',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText2!
+                                        .merge(
+                                          TextStyle(
+                                            fontSize: 13.0,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 8),
+                                        child: Text(
+                                          '(4.2)',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2!
+                                              .merge(
+                                                TextStyle(
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: colorScheme.shadow,
+                                                ),
+                                              ),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            EdgeInsets.only(top: 8, left: 7),
+                                        child: Text(
+                                          '263',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText2!
+                                              .merge(
+                                                TextStyle(
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: colorScheme.shadow,
+                                                ),
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 1,
+                                  ),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(Icons.delete_outline))
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),

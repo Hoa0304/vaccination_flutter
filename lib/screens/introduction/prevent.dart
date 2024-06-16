@@ -10,7 +10,7 @@ class Prevent extends StatelessWidget {
   }
 
   void onLogin(BuildContext context) {
-    Navigator.pushNamed(context, '/login');
+    Navigator.pushNamed(context, '/home');
   }
 
   @override
