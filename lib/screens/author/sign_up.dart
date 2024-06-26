@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
+import 'package:vaccination/app/utils/asset.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/user_auth/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:vaccination/widgets/app_bar.dart';
@@ -41,7 +42,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   addUser() {
-    var url = 'http://192.168.1.7/addUser.php';
+    var url = 'http://${API_K.url}/addUser.php';
     http.post(Uri.parse(url), body: {
       'name': nameController.text,
       'email': usernameController.text,
@@ -73,7 +74,7 @@ class _SignUpState extends State<SignUp> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('Sign-up Page',
+                Text('Đăng ký',
                     style: Theme.of(context).textTheme.bodyText1!.merge(
                           TextStyle(
                             fontSize: 18,
@@ -84,9 +85,9 @@ class _SignUpState extends State<SignUp> {
                   height: 25,
                 ),
                 Input(
-                  text: 'Name',
+                  text: 'Tên',
                   controller: nameController,
-                  hintText: 'Your name',
+                  hintText: 'Nhập tên của bạn',
                   obscureText: false,
                   suffixIcon: Image.asset('assets/icons/user.png'),
                   maxwidth: 350,
@@ -95,9 +96,18 @@ class _SignUpState extends State<SignUp> {
                 Input(
                   text: 'E-mail',
                   controller: usernameController,
-                  hintText: 'Your email',
+                  hintText: 'Nhập email của bạn',
                   obscureText: false,
                   suffixIcon: Image.asset('assets/icons/mail.png'),
+                  maxwidth: 350,
+                  maxHeight: 50,
+                ),
+                Input(
+                  text: 'Địa chỉ',
+                  controller: addressController,
+                  hintText: 'Nhập địa chỉ của bạn',
+                  obscureText: false,
+                  suffixIcon: Icon(Icons.location_disabled),
                   maxwidth: 350,
                   maxHeight: 50,
                 ),
@@ -105,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Phone number',
+                      'Căn cước công dân',
                       style: Theme.of(context).textTheme.bodyText2!.merge(
                             const TextStyle(
                               fontSize: 16,
@@ -129,7 +139,7 @@ class _SignUpState extends State<SignUp> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Image.asset(
-                                'assets/icons/twemoji_flag.png',
+                                'assets/icons/vietnam.png',
                                 width: 24.0,
                                 height: 24.0,
                               ),
@@ -204,27 +214,18 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
                 Input(
-                  text: 'Address',
-                  controller: addressController,
-                  hintText: 'Enter your Address',
-                  obscureText: true,
-                  suffixIcon: Icon(Icons.location_disabled),
-                  maxwidth: 350,
-                  maxHeight: 50,
-                ),
-                Input(
-                  text: 'Password',
+                  text: 'Mật khẩu',
                   controller: passwordController,
-                  hintText: 'Enter your password',
+                  hintText: 'Hãy đặt mật khẩu',
                   obscureText: true,
                   suffixIcon: Image.asset('assets/icons/lock.png'),
                   maxwidth: 350,
                   maxHeight: 50,
                 ),
                 Input(
-                  text: 'Confirm Password',
+                  text: 'Nhập lại mật khẩu',
                   controller: confirmController,
-                  hintText: 'Re-enter your password',
+                  hintText: 'Nhập lại mật khẩu',
                   obscureText: true,
                   suffixIcon: Image.asset('assets/icons/lock.png'),
                   maxwidth: 350,
@@ -233,7 +234,7 @@ class _SignUpState extends State<SignUp> {
                 ButtonBlue(
                   horizontal: 350.0,
                   vertical: 50.0,
-                  text: 'Sign up',
+                  text: 'Đăng ký',
                   buttonFunction: _signUp,
                   colorbg: colorScheme.primary,
                   textColor: Colors.white,

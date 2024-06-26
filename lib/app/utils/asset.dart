@@ -12,6 +12,11 @@ class MyKey {
   static const String api_token = 'babc5ad531821b261d6e68719f1d044a';
 }
 
+// ipconfig -> ipv4
+class API_K {
+  static const String url = '192.168.43.219';
+}
+
 Widget renderTemp(num temp, {double size = 100}) {
   num tempx = temp / 10;
   return Row(

@@ -59,7 +59,7 @@ class _LoginState extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('Login Page',
+                Text('Đăng nhập',
                     style: Theme.of(context).textTheme.bodyText1!.merge(
                           const TextStyle(
                             fontSize: 18,
@@ -84,7 +84,7 @@ class _LoginState extends State<Login> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text("OR",
+                        child: Text("HOẶC",
                             style: Theme.of(context).textTheme.bodyText1!.merge(
                                   const TextStyle(
                                     fontSize: 15,
@@ -106,16 +106,16 @@ class _LoginState extends State<Login> {
                 Input(
                   text: 'E-mail',
                   controller: usernameController,
-                  hintText: 'Enter your e-mail',
+                  hintText: 'Hãy nhập e-mail của bạn',
                   obscureText: false,
                   suffixIcon: Image.asset('assets/icons/mail.png'),
                   maxwidth: 350,
                   maxHeight: 50,
                 ),
                 Input(
-                  text: 'Password',
+                  text: 'Mật khẩu',
                   controller: passwordController,
-                  hintText: 'Enter your password',
+                  hintText: 'Hãy nhập mật khẩu của bạn',
                   obscureText: true,
                   suffixIcon: Image.asset('assets/icons/lock.png'),
                   maxwidth: 350,
@@ -138,7 +138,7 @@ class _LoginState extends State<Login> {
                               VisualDensity(horizontal: -4.0, vertical: 0.0),
                         ),
                         const Text(
-                          'Remember me',
+                          'Ghi nhớ đăng nhập',
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black45,
@@ -151,7 +151,7 @@ class _LoginState extends State<Login> {
                     ),
                     GestureDetector(
                       child: Text(
-                        'Forget password?',
+                        'Quên mật khẩu?',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -175,12 +175,18 @@ class _LoginState extends State<Login> {
                 const SizedBox(
                   height: 20.0,
                 ),
-                Text('Do you already have an account?',
-                    style: Theme.of(context).textTheme.bodyText2),
+                Text(
+                  'Bạn đã có tài khoản chưa?',
+                  style: Theme.of(context).textTheme.bodyText2!.merge(
+                        TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                ),
                 IconButton(
                   onPressed: () => onPressed(context),
                   icon: Text(
-                    'Create Account',
+                    'Đăng ký',
                     style: Theme.of(context).textTheme.bodyText1!.merge(
                           TextStyle(
                               fontSize: 16,

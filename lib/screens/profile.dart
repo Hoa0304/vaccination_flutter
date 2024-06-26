@@ -28,7 +28,7 @@ class _ProfileState extends State<Profile> {
           child: Container(
             margin: const EdgeInsets.only(top: 20),
             child: const Text(
-              "Profile View",
+              "Xem hồ sơ",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
@@ -59,11 +59,11 @@ class _ProfileState extends State<Profile> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     profile(
-                      name: 'Name',
-                      title: 'Tran Thi Cam Hoa',
+                      name: 'Tên',
+                      title: 'Trần Thị Cẩm Hoa',
                     ),
                     profile(
-                      name: 'Address',
+                      name: 'Địa chỉ',
                       title: 'Hoa Xuan, Cam Le',
                     ),
                     profile(
@@ -77,14 +77,14 @@ class _ProfileState extends State<Profile> {
             const SizedBox(height: 20.0),
             textButton(
               function: () => onSchedule(context),
-              text: 'Vaccine Scehdule Record',
+              text: 'Lịch sử tiêm chủng vaccine',
               icon: 'assets/icons/clipboard_blue.png',
             ),
             const SizedBox(height: 20.0),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Settings',
+                'Cài đặt',
                 style: Theme.of(context).textTheme.bodyText1!.merge(
                       TextStyle(
                         color: colorScheme.shadow,
@@ -97,19 +97,19 @@ class _ProfileState extends State<Profile> {
             const SizedBox(height: 20.0),
             textButton(
               function: () => onSchedule(context),
-              text: 'Change Password',
+              text: 'Thay đổi mật khẩu',
               icon: 'assets/icons/change.png',
             ),
             const SizedBox(height: 20.0),
             textButton(
               function: () => onSchedule(context),
-              text: 'Set Default Address',
+              text: 'Cài đặt địa chỉ mặc định',
               icon: 'assets/icons/map.png',
             ),
             const SizedBox(height: 20.0),
             textButton(
               function: () => onGroupChat(context),
-              text: 'Group',
+              text: 'Nhắn tin',
               icon: 'assets/icons/message.png',
             ),
             const SizedBox(height: 15.0),
@@ -131,7 +131,7 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               child: const Text(
-                'Log out',
+                'Đăng xuất',
                 style: TextStyle(fontSize: 18),
               ),
             ),

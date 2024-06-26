@@ -32,40 +32,58 @@ class TextIntro extends StatelessWidget {
         children: [
           Text(
             text1,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyText1!.merge(TextStyle(
+                  fontSize: 20,
+                )),
           ),
           Text(
             text2,
             style: Theme.of(context).textTheme.bodyText1!.merge(
-                  TextStyle(color: colorScheme.primary),
+                  TextStyle(
+                    color: colorScheme.primary,
+                    fontSize: 20,
+                  ),
                 ),
           ),
           Text(
             text3,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyText1!.merge(TextStyle(
+                  fontSize: 20,
+                )),
           ),
           Text(
             text4,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyText1!.merge(TextStyle(
+                  fontSize: 20,
+                )),
           ),
           const SizedBox(height: 60),
           Text(
             text5,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyText2!.merge(TextStyle(
+                  fontSize: 15,
+                )),
           ),
           Text(
             text6,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyText2!.merge(TextStyle(
+                  fontSize: 15,
+                )),
           ),
           Text(
             text7,
             style: Theme.of(context).textTheme.bodyText2!.merge(
-                  TextStyle(color: colorScheme.primary),
+                  TextStyle(
+                    color: colorScheme.primary,
+                    fontSize: 15,
+                  ),
                 ),
           ),
           Text(
             text8,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyText2!.merge(TextStyle(
+                  fontSize: 15,
+                )),
           ),
         ],
       ),

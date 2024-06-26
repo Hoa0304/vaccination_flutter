@@ -44,23 +44,24 @@ class Test extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Image(
-              image: AssetImage('assets/image/free.png'),
+              image: AssetImage('assets/image/test.png'),
               width: 300,
               height: 300,
               fit: BoxFit.contain,
             ),
             TwoTextsInRow(
-              text: 'test and analysis',
+              text: 'Xét nghiệm và phân tích',
               font1: Theme.of(context)
                   .textTheme
                   .bodyText1!
-                  .merge(TextStyle(color: colorScheme.primary, fontSize: 25)),
+                  .merge(TextStyle(color: colorScheme.primary, fontSize: 20)),
               font2: Theme.of(context)
                   .textTheme
                   .bodyText1!
-                  .merge(const TextStyle(fontSize: 25)),
+                  .merge(const TextStyle(fontSize: 20)),
             ),
-            Text('Worry no more about what clinic offers the ',
+            Text(
+                'Không còn phải lo lắng về việc những phòng khám nào đang cung cấp loại vaccine',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyText2!.merge(
                       const TextStyle(
@@ -68,7 +69,7 @@ class Test extends StatelessWidget {
                       ),
                     )),
             TwoTextsInRow(
-              text: 'vaccine you want.',
+              text: 'mà bạn muốn.',
               font1: Theme.of(context)
                   .textTheme
                   .bodyText2!
@@ -79,7 +80,7 @@ class Test extends StatelessWidget {
                     ),
                   ),
             ),
-            Text('check with your with your device and scehdule an appointment',
+            Text('Hãy kiểm tra trên thiết bị của bạn và đặt lịch hẹn.',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyText2!.merge(
                       const TextStyle(
@@ -90,7 +91,7 @@ class Test extends StatelessWidget {
             ButtonBlue(
               horizontal: 250.0,
               vertical: 48.0,
-              text: 'Get Started',
+              text: 'Đăng nhập',
               buttonFunction: () => onLogin(context),
               colorbg: colorScheme.primary,
               textColor: Colors.white,

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:vaccination/app/utils/asset.dart';
 import 'package:vaccination/providers/weather_provider.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/bottom_bar.dart';
@@ -30,8 +31,8 @@ class _SchedulesState extends State<Schedules> {
   }
 
   Future<void> fetchScheduleData() async {
-    final response =
-        await http.post(Uri.parse('http://192.168.1.7/getSchedule.php'), body: {
+    final response = await http
+        .post(Uri.parse('http://${API_K.url}/getSchedule.php'), body: {
       'Email': currentEmail,
     });
     if (response.statusCode == 200) {
@@ -165,43 +166,6 @@ class _SchedulesState extends State<Schedules> {
                                             color: Colors.grey,
                                           ),
                                         ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.only(top: 8),
-                                        child: Text(
-                                          '(4.2)',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText2!
-                                              .merge(
-                                                TextStyle(
-                                                  fontSize: 13.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  color: colorScheme.shadow,
-                                                ),
-                                              ),
-                                        ),
-                                      ),
-                                      Container(
-                                        padding:
-                                            EdgeInsets.only(top: 8, left: 7),
-                                        child: Text(
-                                          '263',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText2!
-                                              .merge(
-                                                TextStyle(
-                                                  fontSize: 14.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  color: colorScheme.shadow,
-                                                ),
-                                              ),
-                                        ),
-                                      ),
-                                    ],
                                   ),
                                 ],
                               ),

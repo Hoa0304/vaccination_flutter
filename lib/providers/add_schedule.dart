@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:vaccination/app/utils/asset.dart';
 import 'package:vaccination/providers/weather_provider.dart';
 import 'package:vaccination/theme/theme.dart';
 import 'package:vaccination/widgets/bottom_bar.dart';
@@ -42,7 +43,7 @@ class _AddScheduleState extends State<AddSchedule> {
     if (sinovac) {
       vid = 4;
     }
-    var url = 'http://192.168.1.7/addSchedule.php';
+    var url = 'http://${API_K.url}/addSchedule.php';
     http.post(Uri.parse(url), body: {
       'vid': vid.toString(),
       'name': nameController.text,
@@ -55,7 +56,7 @@ class _AddScheduleState extends State<AddSchedule> {
   void _openDatePicker(BuildContext context) {
     BottomPicker.date(
       pickerTitle: Text(
-        'Set your Birthday',
+        'Sinh nhật',
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,
@@ -89,7 +90,7 @@ class _AddScheduleState extends State<AddSchedule> {
           children: [
             Expanded(
               child: Text(
-                "Book an appointment",
+                "Đặt lịch",
                 style: Theme.of(context).textTheme.bodyText1!.merge(
                       TextStyle(
                         color: colorScheme.shadow,
@@ -113,9 +114,9 @@ class _AddScheduleState extends State<AddSchedule> {
         padding: const EdgeInsets.only(left: 50, top: 10, right: 50),
         children: [
           Input(
-            text: 'Name',
+            text: 'Tên',
             controller: nameController,
-            hintText: 'Your name',
+            hintText: 'Nhập tên của bạn',
             obscureText: false,
             maxwidth: 300,
             maxHeight: 50,
@@ -124,7 +125,7 @@ class _AddScheduleState extends State<AddSchedule> {
           Input(
             text: 'Email',
             controller: emailController,
-            hintText: 'Your email',
+            hintText: 'Nhập email của bạn',
             obscureText: false,
             maxwidth: 300,
             maxHeight: 50,
@@ -134,9 +135,9 @@ class _AddScheduleState extends State<AddSchedule> {
             ),
           ),
           Input(
-            text: 'Address',
+            text: 'Địa chỉ',
             controller: addressController,
-            hintText: 'Your address',
+            hintText: 'Nhập địa chỉ bạn sinh sống',
             obscureText: false,
             maxwidth: 300,
             maxHeight: 50,
@@ -149,7 +150,7 @@ class _AddScheduleState extends State<AddSchedule> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Phone number',
+                'Căn cước công dân',
                 style: Theme.of(context).textTheme.bodyText2!.merge(
                       const TextStyle(
                         fontSize: 16,
@@ -172,7 +173,7 @@ class _AddScheduleState extends State<AddSchedule> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Image.asset(
-                          'assets/icons/twemoji_flag.png',
+                          'assets/icons/vietnam.png',
                           width: 24.0,
                           height: 24.0,
                         ),
@@ -244,51 +245,51 @@ class _AddScheduleState extends State<AddSchedule> {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                'Date of birth',
-                style: Theme.of(context).textTheme.bodyText2!.merge(
-                      TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: colorScheme.shadow),
-                    ),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-            ],
-          ),
-          TextButton.icon(
-            onPressed: () {
-              _openDatePicker(context);
-            },
-            icon: Icon(
-              Icons.calendar_today,
-              size: 25.0,
-              color: colorScheme.secondary,
-            ),
-            label: Text(
-              'YYYY/MM/DD',
-              style: TextStyle(color: colorScheme.onSecondary, fontSize: 14),
-            ),
-            style: TextButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              side: BorderSide(
-                color: colorScheme.primary,
-                width: 2, // Độ rộng viền
-              ),
-              backgroundColor: colorScheme.onPrimary,
-              fixedSize: const Size(285.0, 50.0),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.start,
+          //   children: [
+          //     Text(
+          //       'Sinh nhật',
+          //       style: Theme.of(context).textTheme.bodyText2!.merge(
+          //             TextStyle(
+          //                 fontSize: 16,
+          //                 fontWeight: FontWeight.w600,
+          //                 color: colorScheme.shadow),
+          //           ),
+          //     ),
+          //     const SizedBox(
+          //       width: 20,
+          //     ),
+          //   ],
+          // ),
+          // TextButton.icon(
+          //   onPressed: () {
+          //     _openDatePicker(context);
+          //   },
+          //   icon: Icon(
+          //     Icons.calendar_today,
+          //     size: 25.0,
+          //     color: colorScheme.secondary,
+          //   ),
+          //   label: Text(
+          //     'YYYY/MM/DD',
+          //     style: TextStyle(color: colorScheme.onSecondary, fontSize: 14),
+          //   ),
+          //   style: TextButton.styleFrom(
+          //     shape: RoundedRectangleBorder(
+          //       borderRadius: BorderRadius.circular(10),
+          //     ),
+          //     side: BorderSide(
+          //       color: colorScheme.primary,
+          //       width: 2, // Độ rộng viền
+          //     ),
+          //     backgroundColor: colorScheme.onPrimary,
+          //     fixedSize: const Size(285.0, 50.0),
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
           DropdownButton<String>(
             value: selectedOption,
             onChanged: (String? newValue) {
@@ -312,7 +313,7 @@ class _AddScheduleState extends State<AddSchedule> {
             height: 20,
           ),
           Text(
-            'Sex',
+            'Giới tính',
             style: Theme.of(context).textTheme.bodyText2!.merge(
                   TextStyle(
                       fontSize: 16,
@@ -353,7 +354,7 @@ class _AddScheduleState extends State<AddSchedule> {
                 ),
               ),
               Text(
-                'Female',
+                'Nữ',
                 style: TextStyle(
                   fontSize: 15,
                   color: colorScheme.shadow,
@@ -393,7 +394,7 @@ class _AddScheduleState extends State<AddSchedule> {
                 ),
               ),
               Text(
-                'Male',
+                'Nam',
                 style: TextStyle(
                   fontSize: 15,
                   color: colorScheme.shadow,
@@ -405,7 +406,7 @@ class _AddScheduleState extends State<AddSchedule> {
             height: 10,
           ),
           Text(
-            'Vaccine Type',
+            'Loại Vaccine',
             style: Theme.of(context).textTheme.bodyText2!.merge(
                   TextStyle(
                       fontSize: 16,
@@ -622,7 +623,7 @@ class _AddScheduleState extends State<AddSchedule> {
               ButtonBlue(
                 horizontal: 120,
                 vertical: 50,
-                text: 'Cancel',
+                text: 'Thoát',
                 buttonFunction: () {},
                 colorbg: colorScheme.onPrimary,
                 textColor: Color(0xFF7E7F80),
@@ -630,7 +631,7 @@ class _AddScheduleState extends State<AddSchedule> {
               ButtonBlue(
                 horizontal: 130,
                 vertical: 50,
-                text: 'Register',
+                text: 'Đặt lịch',
                 buttonFunction: () {
                   addSchedule();
                 },

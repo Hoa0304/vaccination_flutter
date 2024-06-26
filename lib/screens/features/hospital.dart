@@ -47,7 +47,7 @@ class _HospitalState extends State<Hospital> {
               ),
             ),
             const Text(
-              "Hospital",
+              "Bệnh viện",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
@@ -100,7 +100,7 @@ class _HospitalState extends State<Hospital> {
                 ),
                 fillColor: Colors.white,
                 filled: true,
-                hintText: 'Search Places, Clinics, and more...',
+                hintText: 'Tìm kiếm địa điểm, trung tâm ...',
                 hintStyle: Theme.of(context).textTheme.bodyText2!.merge(
                       TextStyle(
                         fontSize: 16,
@@ -125,7 +125,7 @@ class _HospitalState extends State<Hospital> {
             Row(
               children: [
                 Text(
-                  'Recent searches',
+                  'Tìm kiếm gần đây',
                   style: Theme.of(context).textTheme.bodyText1!.merge(
                         TextStyle(
                           color: colorScheme.shadow,
@@ -168,37 +168,7 @@ class _HospitalState extends State<Hospital> {
                   ),
                   onPressed: () {},
                   child: Text(
-                    'Ojo, Lagos',
-                    style: Theme.of(context).textTheme.bodyText2!.merge(
-                          TextStyle(
-                            fontSize: 15,
-                            color: colorScheme.shadow,
-                          ),
-                        ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: colorScheme.background,
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'Festac, Lagos',
-                    style: Theme.of(context).textTheme.bodyText2!.merge(
-                          TextStyle(
-                            fontSize: 15,
-                            color: colorScheme.shadow,
-                          ),
-                        ),
-                  ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: colorScheme.background,
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'Jolt, Clinic',
+                    'Trung tâm y tế quận Liên Chiểu',
                     style: Theme.of(context).textTheme.bodyText2!.merge(
                           TextStyle(
                             fontSize: 15,
